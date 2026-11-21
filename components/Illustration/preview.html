@@ -1,0 +1,32 @@
+<!-- @dsCard group="Illustrations" height=516 subtitle="twelve scenes, plus onInk" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Illustration — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+  .set { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+  .cell { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: var(--radius-lg); background: var(--surface-card); border: 1px solid var(--border-subtle); }
+  .cell span { font-family: var(--font-mono); font-size: var(--text-micro); color: var(--text-muted); }
+  .ink { display: flex; gap: 20px; align-items: center; padding: 20px; border-radius: var(--radius-xl); background: var(--surface-ink); }
+  .ink p { margin: 0; color: var(--on-ink-body); font-size: var(--text-body-sm); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+  function Demo() {
+    var scenes = D.ILLUSTRATION_SCENES || ['empty', 'search', 'error', 'offline', 'success', 'connect', 'invite', 'launch', 'not-found', 'hero', 'cover', 'email'];
+    return h('div', { className: 'stack', style: { gap: 16 } },
+      h('div', { className: 'set' }, scenes.map(function (s) { return h('div', { className: 'cell', key: s }, h(D.Illustration, { scene: s, width: 124 }), h('span', null, s)); })),
+      h('div', { className: 'ink' }, h(D.Illustration, { scene: 'cover', width: 170, onInk: true }),
+        h('p', null, 'Pass onInk on navy panels, dark slides and email headers.')));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!-- @dsCard group="Forms" height=280 subtitle="default · counter near limit · error · success" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Textarea — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    return h('div', { className: 'grid' },
+      h(D.Textarea, { id: 't1', label: 'Tell me about the project', hint: 'Who it is for, and what a good result looks like.', rows: 4 }),
+      h(D.Textarea, { id: 't2', label: 'Short intro', maxLength: 120, rows: 3, defaultValue: 'We are building an AI agent for freight brokers and need someone who can design the trust layer and the system behind it.' }),
+      h(D.Textarea, { id: 't3', label: 'Message', required: true, rows: 3, error: 'Add a sentence or two so I know how to help' }));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

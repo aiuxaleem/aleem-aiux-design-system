@@ -1,0 +1,46 @@
+<!-- @dsCard group="Status" height=584 subtitle="300 ms delay · 600 ms minimum · fade in · refetch keeps content" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>LoadingRegion — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 10px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+  .panel { padding: 20px; border-radius: var(--radius-xl); background: var(--surface-card); border: 1px solid var(--border-subtle); }
+  .ink { padding: 20px; border-radius: var(--radius-xl); background: var(--gradient-ink); }
+  .ctl { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; align-items: center; }
+  .log { font-family: var(--font-mono); font-size: var(--text-micro); color: var(--text-muted); margin-inline-start: auto; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  var CASES = [
+    { client: 'Colaberry', year: '2026', title: 'One component library under five brands', summary: '20 typed React components, 15 templates and 231 tokens.', metric: { value: '5', label: 'brands' } },
+    { client: 'Freight platform', year: '2026', title: 'A design system that audits itself', summary: 'Contrast, state and layout fixes in both themes.', metric: { value: '97', label: 'UAT screens' } },
+    { client: 'Colaberry', year: '2025', title: 'Learner portal: points, tiers and streaks', summary: 'Gamification, presence and chat for learners.' }];
+  function Demo() {
+    var st = React.useState(true), loading = st[0], setLoading = st[1];
+    var lg = React.useState('Slow load: 1.8 s'), log = lg[0], setLog = lg[1];
+    var t = React.useRef(null);
+    function run(ms, text) { clearTimeout(t.current); setLog(text); setLoading(true); t.current = setTimeout(function () { setLoading(false); }, ms); }
+    React.useEffect(function () { t.current = setTimeout(function () { setLoading(false); }, 1800); return function () { clearTimeout(t.current); }; }, []);
+    return h('div', null,
+      h('div', { className: 'ctl' },
+        h(D.Button, { size: 'sm', variant: 'secondary', onClick: function () { run(1800, 'Slow load: skeleton after 300 ms, held 600 ms or more'); } }, 'Slow load'),
+        h(D.Button, { size: 'sm', variant: 'secondary', onClick: function () { run(150, 'Fast load (150 ms): no skeleton at all'); } }, 'Fast load'),
+        h(D.Button, { size: 'sm', variant: 'secondary', onClick: function () { run(1400, 'Refetch: content stays, dimmed, with Updating'); } }, 'Refetch'),
+        h('span', { className: 'log', role: 'note' }, log)),
+      h(D.LoadingRegion, { loading: loading, label: 'Loading case studies', doneLabel: 'Case studies loaded', skeleton: h(D.SkeletonPreset, { kind: 'project-card', count: 3 }) },
+        h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))', gap: 16 } },
+          CASES.map(function (c, i) { return h(D.ProjectCard, Object.assign({ key: i, href: '#', tags: ['Design systems'] }, c)); }))));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

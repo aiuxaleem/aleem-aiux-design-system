@@ -1,0 +1,48 @@
+<!-- @dsCard group="Feedback" height=504 subtitle="one region, every state: switch between them" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>StateView — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 10px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+  .panel { padding: 20px; border-radius: var(--radius-xl); background: var(--surface-card); border: 1px solid var(--border-subtle); }
+  .ink { padding: 20px; border-radius: var(--radius-xl); background: var(--gradient-ink); }
+  .seg { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  var STATES = [['loading', 'Loading'], ['refreshing', 'Refreshing'], ['ready', 'Ready'], ['empty', 'Empty'], ['partial', 'Partial'], ['error', 'Error'], ['offline', 'Offline'], ['permission', 'No access']];
+  var ROWS = [['Colaberry Design System', 'Shipped · 2026'], ['Design system audit skill', 'Shipped · Oct 2026'], ['Learner portal', 'In production'], ['AgentCory', 'Ongoing']];
+  function Demo() {
+    var s = React.useState('loading'), status = s[0], setStatus = s[1];
+    var list = h('ul', { style: { listStyle: 'none', margin: 0, padding: 0 } }, ROWS.map(function (r, i) {
+      return h('li', { key: i, style: { display: 'flex', alignItems: 'center', gap: 12, paddingBlock: 10, borderBottom: i < ROWS.length - 1 ? '1px solid var(--border-subtle)' : 0 } },
+        h(D.Avatar, { kind: 'aiux', size: 40 }),
+        h('span', { style: { flex: 1, minWidth: 0, display: 'grid', gap: 2 } }, h('b', { style: { fontSize: 'var(--text-ui-sm)', color: 'var(--text-strong)' } }, r[0]), h('span', { style: { fontSize: 'var(--text-caption)', color: 'var(--text-muted)' } }, r[1])),
+        h(D.Badge, { tone: i < 2 ? 'success' : 'info', size: 'sm' }, i < 2 ? 'Shipped' : 'Active'));
+    }));
+    return h('div', null,
+      h('div', { className: 'seg', role: 'group', 'aria-label': 'Preview a state' }, STATES.map(function (x) {
+        return h(D.Chip, { key: x[0], size: 'sm', selected: status === x[0], onToggle: function () { setStatus(x[0]); } }, x[1]);
+      })),
+      h('div', { className: 'panel', style: { paddingBlock: 8 } },
+        h(D.StateView, {
+          status: status, skeleton: 'list', skeletonCount: 4, minHeight: 330, label: 'Loading projects', doneLabel: 'Projects loaded',
+          onRetry: function () { setStatus('loading'); setTimeout(function () { setStatus('ready'); }, 1500); },
+          empty: { title: 'No projects yet', children: 'Projects you add show up here, newest first.', action: h(D.Button, { size: 'sm', variant: 'ink' }, 'Add a project') },
+          error: { variant: 'plain', details: 'GET /api/projects → 503 Service Unavailable' },
+          partial: { title: 'Some projects did not sync', children: 'Showing what loaded. Two items from Figma are missing.', action: h(D.Button, { size: 'sm', variant: 'secondary' }, 'Sync again') }
+        }, list)));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

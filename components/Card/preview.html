@@ -1,0 +1,32 @@
+<!-- @dsCard group="Surfaces" height=324 subtitle="default · ink · brand · sunken · outline · loading" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Card — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+  .bento { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  .bento p { margin: 6px 0 0; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+  function Demo() {
+    return h('div', { className: 'bento' },
+      h(D.Card, { variant: 'ink', interactive: true, style: { gridColumn: 'span 2' } }, h('h3', null, 'Dark spotlight'), h('p', null, 'On-ink text stays legible in both themes.')),
+      h(D.Card, { interactive: true }, h('div', { className: 'cory-metric', style: { fontSize: 32 } }, '94%'), h('p', { style: { color: 'var(--text-muted)' } }, 'Contact rate')),
+      h(D.Card, { variant: 'brand', interactive: true }, h('h3', { style: { color: 'var(--text-on-brand)' } }, 'Hire me'), h('p', null, 'Open to 2026 roles.')),
+      h(D.Card, { variant: 'sunken' }, h('h3', null, 'Sunken'), h('p', null, 'Recessed well.')),
+      h(D.Card, { variant: 'outline' }, h('h3', null, 'Outline'), h('p', null, 'Border only.')),
+      h(D.Card, { loading: true }, h('h3', null, 'Loaded')),
+      h(D.Card, { variant: 'ink', loading: true }, h('h3', null, 'Loaded')));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!-- @dsCard group="Feedback" height=300 subtitle="assistant voice · neutral · illustration" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>EmptyState — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    return h('div', { className: 'grid' },
+      h(D.EmptyState, { voice: 'assistant', title: 'No saved answers yet', action: h(D.Button, { size: 'sm' }, 'Ask a question') }, 'Save an answer and it will wait here for you.'),
+      h(D.EmptyState, { voice: 'neutral', icon: h(D.Icon, { name: 'search', size: 26 }), title: 'No case studies match', action: h(D.Button, { size: 'sm', variant: 'secondary' }, 'Clear filters') }, 'Try fewer topics or a different year.'));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

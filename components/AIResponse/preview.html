@@ -1,0 +1,38 @@
+<!-- @dsCard group="AI patterns" height=560 subtitle="answer · citations · confidence · sources · feedback · streaming" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>AIResponse — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+  .grid.wide { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+  @media (max-width: 640px) { .grid.wide { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    var C = D.Citation;
+    var sources = [
+      { title: 'Case study: Colaberry Design System', domain: 'aiuxaleem-portfolio-app.vercel.app', url: 'https://aiuxaleem-portfolio-app.vercel.app/case-studies' },
+      { title: 'Resume: Lead AI Product Designer', domain: 'aiuxaleem-portfolio-app.vercel.app', url: 'https://aiuxaleem-portfolio-app.vercel.app/resume' },
+      { title: 'People + AI Guidebook: explainability', domain: 'pair.withgoogle.com' }];
+    return h('div', { className: 'grid wide' },
+      h(D.AIResponse, { confidence: 0.86, sources: sources, model: 'Portfolio assistant', onRegenerate: function () {} },
+        'Aleem built the Colaberry Design System: ', h('strong', null, '20 typed React components'), ', 15 templates and 231 tokens that developers, coding agents and marketers build from', h(C, { n: 1 }),
+        '. It puts five brands on one component library with WCAG 2.1 AA colour pairs', h(C, { n: 2 }), ', and his AI work shows its sources so people can check them', h(C, { n: 3 }), '.'),
+      h('div', { className: 'stack' },
+        h(D.AIResponse, { status: 'streaming', confidenceLevel: 'medium', onStop: function () {} }, 'Comparing the two onboarding flows. The second one asks for less up front, so'),
+        h(D.AIResponse, { status: 'error', onRetry: function () {} })));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

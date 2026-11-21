@@ -1,0 +1,40 @@
+<!-- @dsCard group="Status" height=1900 subtitle="matches ProjectCard · AIResponse · chat · list · timeline · table · stats · form" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>SkeletonPreset — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 10px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+  .panel { padding: 20px; border-radius: var(--radius-xl); background: var(--surface-card); border: 1px solid var(--border-subtle); }
+  .ink { padding: 20px; border-radius: var(--radius-xl); background: var(--gradient-ink); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    var K = D.SkeletonPreset;
+    function sec(title, node) { return h('section', null, h('p', { className: 'label' }, title), node); }
+    return h('div', { className: 'stack', style: { gap: 28 } },
+      sec('project-card · featured', h(K, { kind: 'project-card', count: 2, featured: true })),
+      h('div', { className: 'grid', style: { gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 24 } },
+        sec('ai-answer', h(K, { kind: 'ai-answer' })),
+        sec('chat', h('div', { className: 'panel' }, h(K, { kind: 'chat', count: 4 })))),
+      h('div', { className: 'grid', style: { gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 24 } },
+        sec('list', h('div', { className: 'panel', style: { paddingBlock: 8 } }, h(K, { kind: 'list', count: 4 }))),
+        sec('timeline', h('div', { className: 'panel' }, h(K, { kind: 'timeline', count: 3 })))),
+      sec('table', h('div', { className: 'panel', style: { paddingBlock: 4 } }, h(K, { kind: 'table', count: 5, columns: 4 }))),
+      h('div', { className: 'grid', style: { gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 24 } },
+        sec('stat', h(K, { kind: 'stat', count: 3 })),
+        sec('form', h(K, { kind: 'form', count: 3 }))));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

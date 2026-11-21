@@ -1,0 +1,102 @@
+<!-- @dsCard group="Page examples" height=3300 subtitle="a full page built only from this system · check it at phone, tablet and desktop widths" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>PortfolioHome — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 10px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+  .panel { padding: 20px; border-radius: var(--radius-xl); background: var(--surface-card); border: 1px solid var(--border-subtle); }
+  .ink { padding: 20px; border-radius: var(--radius-xl); background: var(--gradient-ink); }
+  body { padding: 0 !important; }
+  .wrap { max-width: 1120px; margin-inline: auto; padding-inline: var(--gutter, 20px); }
+  .sec { padding-block: var(--section-y, 72px); }
+  .sec + .sec { padding-block-start: 0; }
+  .h2 { margin: 0 0 8px; font-family: var(--font-display); font-size: clamp(1.6rem, 1.2rem + 1.8vw, 2.4rem); line-height: 1.12; letter-spacing: -0.02em; color: var(--text-strong); text-wrap: balance; }
+  .lede { margin: 0 0 28px; max-width: 56ch; color: var(--text-muted); font-size: var(--text-ui); line-height: 1.6; }
+  .cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .cases > .span-2 { grid-column: span 2; }
+  .trust { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(20px, 4vw, 40px); align-items: center; padding: clamp(24px, 5vw, 56px); }
+  .qs { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: q; }
+  .qs li { counter-increment: q; display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 12px; align-items: start; color: var(--on-ink-body); font-size: var(--text-ui-sm); line-height: 1.5; }
+  .qs li::before { content: counter(q); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--on-ink-fill); border: 1px solid var(--on-ink-border-strong); color: var(--on-ink-strong); font: 700 13px var(--font-sans); }
+  .qs b { display: block; color: var(--on-ink-strong); font-size: var(--text-ui); }
+  .two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(24px, 5vw, 56px); align-items: start; }
+  .cta { display: grid; gap: 16px; justify-items: start; padding: clamp(28px, 6vw, 64px); position: relative; }
+  .cta .pat { position: absolute; inset-block: 0; inset-inline-end: 0; width: 42%; padding: 6% 5%; opacity: .9; z-index: -1; }
+  @media (max-width: 760px) { .cases { grid-template-columns: minmax(0, 1fr); } .cases > .span-2 { grid-column: auto; } .cta .pat { display: none; } }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  var ANSWER = ['Aleem', 'built', 'the', 'Colaberry', 'Design', 'System:', '20', 'typed', 'React', 'components,', '15', 'templates', 'and', '231', 'tokens', 'that', 'developers,', 'coding', 'agents', 'and', 'marketers', 'all', 'build', 'from.'];
+  var SOURCES = [{ title: 'Case study: Colaberry Design System', domain: 'aiuxaleem-portfolio-app.vercel.app', url: 'https://aiuxaleem-portfolio-app.vercel.app/case-studies' }, { title: 'Resume: Lead AI Product Designer', domain: 'aiuxaleem-portfolio-app.vercel.app', url: 'https://aiuxaleem-portfolio-app.vercel.app/resume' }];
+  function TrustDemo() {
+    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var s = React.useState(still ? ANSWER.length : 0), n = s[0], setN = s[1];
+    React.useEffect(function () { if (n >= ANSWER.length) return; var t = setTimeout(function () { setN(n + 1); }, n === 0 ? 900 : 70); return function () { clearTimeout(t); }; }, [n]);
+    var done = n >= ANSWER.length;
+    return h('div', { className: 'cory-ink', style: { padding: 'clamp(14px, 3vw, 24px)', display: 'grid', gap: 12 } },
+      h('span', { 'aria-hidden': 'true', style: { position: 'absolute', width: '70%', aspectRatio: '1', insetInlineEnd: '-22%', top: '-34%', background: 'var(--glow-cyan)', filter: 'blur(40px)', zIndex: -1 } }),
+      h(D.ChatBubble, { from: 'user' }, 'Has he built a design system that agents can use?'),
+      h(D.AIResponse, { status: done ? 'done' : 'streaming', confidence: done ? 0.86 : undefined, sources: SOURCES, model: 'Portfolio assistant', onStop: function () { setN(ANSWER.length); }, onRegenerate: function () { setN(0); }, style: { minHeight: 268, alignContent: 'start' } },
+        ANSWER.slice(0, n).join(' '), done ? h(D.Citation, { n: 1 }) : null));
+  }
+  function Demo() {
+    var links = [{ label: 'Work', href: '#work', current: true }, { label: 'Approach', href: '#approach' }, { label: 'About', href: '#about' }];
+    return h('div', null,
+      h(D.SiteHeader, { sticky: false, links: links, tools: h(D.ThemeToggle, null), action: h(D.Button, { size: 'sm', href: '#contact' }, "Let's talk") }),
+      h('main', { id: 'main' },
+        h('div', { className: 'wrap sec' }, h(D.Hero, {
+          eyebrow: 'Lead AI Product Designer · Hyderabad', title: 'AI is fast. Trust is slow. I design the gap.', highlight: 'I design the gap.',
+          actions: h(F, null, h(D.Button, { href: '#work' }, 'View my work'), h(D.Button, { variant: 'secondary', href: '#contact' }, "Let's talk")),
+          proof: [{ value: '13+', label: 'years in product design' }, { value: '5', label: 'brands on one library' }, { value: '97', label: 'screens audited' }],
+          art: h(TrustDemo) }, 'I design AI products people can check, question and stop. Ask the assistant: it shows its sources.')),
+        h('section', { className: 'wrap sec', id: 'work' },
+          h('h2', { className: 'h2' }, 'Selected work'), h('p', { className: 'lede' }, 'Each one starts with the outcome and the number that proves it.'),
+          h('div', { className: 'cases' },
+            h(D.ProjectCard, { featured: true, headingLevel: 3, href: 'https://aiuxaleem-portfolio-app.vercel.app/case-studies', client: 'Colaberry', role: 'Lead AI Product Designer', year: '2026', status: 'Design system', title: 'One component library under five brands', summary: 'A system that a marketer, a developer and an AI agent can all build from.', metric: { value: '5', label: 'brands, WCAG 2.1 AA colour pairs' }, tags: ['Design systems', 'Tokens', 'Coding agents'] }),
+            h(D.ProjectCard, { headingLevel: 3, href: 'https://aiuxaleem-portfolio-app.vercel.app/case-studies', client: 'Freight platform', year: 'Oct 2026', title: 'A design system that audits itself', summary: 'Contrast, state and layout fixes in both themes, without changing behaviour.', metric: { value: '97', label: 'UAT screens' }, tags: ['Accessibility', 'Claude skills'] }))),
+        h('section', { className: 'wrap sec', id: 'approach' },
+          h('div', { className: 'cory-ink trust' },
+            h('div', null,
+              h('h2', { className: 'h2', style: { color: 'var(--on-ink-strong)' } }, 'Five questions every AI screen answers'),
+              h('ol', { className: 'qs', style: { marginTop: 20 } },
+                h('li', null, h('span', null, h('b', null, 'Is this AI?'), 'Labelled, every time.')),
+                h('li', null, h('span', null, h('b', null, 'Where did it come from?'), 'Facts carry citations.')),
+                h('li', null, h('span', null, h('b', null, 'How sure is it?'), 'Confidence in words, not just colour.')),
+                h('li', null, h('span', null, h('b', null, 'What is it doing?'), 'Every step is visible.')),
+                h('li', null, h('span', null, h('b', null, 'Can I stop or undo it?'), 'Nothing risky runs without a yes.')))),
+            h(D.ApprovalCard, { agent: 'Publishing agent', title: 'Publish the case study to the public site', risk: 'high', reversible: false, details: [{ label: 'Affects', value: 'aiux portfolio, live' }, { label: 'Why', value: 'Review passed, 2 approvals' }], onApprove: function () {}, onReject: function () {} }, 'Visitors will see it straight away.'))),
+        h('section', { className: 'wrap sec', id: 'about' },
+          h('div', { className: 'two' },
+            h('div', null, h('h2', { className: 'h2' }, 'Experience'), h('p', { className: 'lede' }, 'Thirteen years across healthcare, fintech, enterprise and AI.'),
+              h(D.Timeline, { items: [
+                { period: '2025 to now', title: 'Lead AI Product Designer', org: 'Colaberry', place: 'Hyderabad', current: true, summary: 'AI products and the design systems behind them.' },
+                { period: '2022 to 2024', title: 'Senior Product Designer', org: 'NTT DATA', summary: 'Enterprise interfaces for Latitude Financial Services.' },
+                { period: '2019 to 2022', title: 'Lead Designer', org: 'Teqsar', summary: 'A fintech platform and its design frameworks.' }] })),
+            h('div', null, h('h2', { className: 'h2' }, 'Questions'), h('p', { className: 'lede' }, 'The ones hiring managers ask first.'),
+              h(D.Accordion, { defaultOpen: [0], items: [
+                { title: 'What do you design?', content: 'AI products people can trust: agents, assistants and the design systems they are built with.' },
+                { title: 'Where are you based?', content: 'Hyderabad, India, working Gulf hours and open to relocation.' },
+                { title: 'How do you work with engineers?', content: 'In the same system: tokens, typed components and docs that coding agents can read.' }] })))),
+        h('section', { className: 'wrap sec', id: 'contact' },
+          h('div', { className: 'cory-ink cta' },
+            h('span', { className: 'pat' }, h(D.SignalPattern, { tone: 'ink', seed: 5, rows: 6, align: 'end' })),
+            h('h2', { className: 'h2', style: { color: 'var(--on-ink-strong)', maxWidth: '18ch' } }, 'Building an AI product people need to trust?'),
+            h('p', { style: { margin: 0, color: 'var(--on-ink-body)', maxWidth: '44ch', lineHeight: 1.6 } }, 'Tell me what it does and where people hesitate. I reply within one working day.'),
+            h(D.Button, { variant: 'onInkSolid', href: '#' }, "Let's talk")))),
+      h(D.SiteFooter, { tagline: 'I design AI products people can trust, and the design systems behind them.',
+        columns: [{ title: 'Work', links: [{ label: 'Case studies', href: '#' }, { label: 'Design systems', href: '#' }] }, { title: 'About', links: [{ label: 'Resume', href: '#' }, { label: 'Contact', href: '#' }] }],
+        social: [{ label: 'LinkedIn', href: '#' }, { label: 'GitHub', href: '#' }], legal: '© 2026 Mohammad Abdul Aleem. Hyderabad, India.' }));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

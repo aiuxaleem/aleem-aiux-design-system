@@ -1,0 +1,25 @@
+<!-- @dsCard group="Core" height=164 subtitle="the mascot as an SVG group, for composing inside drawings" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>CoryMark — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+  function Demo() {
+    return h('svg', { viewBox: '0 0 300 120', width: 300, height: 120, role: 'img', 'aria-label': 'Aleem mark' },
+      h(D.CoryMark, { x: 0, y: 0, size: 120, id: 'a' }),
+      h(D.CoryMark, { x: 150, y: 0, size: 120, tile: '#F4F5FA', glyph: '#0B1F36', id: 'b' }));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

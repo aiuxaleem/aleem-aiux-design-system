@@ -1,0 +1,27 @@
+<!-- @dsCard group="Surfaces" height=252 subtitle="loaded · failed with retry · placeholder with overlay" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>MediaFrame — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+  function Demo() {
+    function cell(t, node) { return h('div', null, h('p', { className: 'label' }, t), node); }
+    return h('div', { className: 'grid' },
+      cell('Image, fades in once loaded', h(D.MediaFrame, { src: '../../assets/Social/aleem-og-image-1200x630.png', alt: 'Aleem AIUX link preview image', ratio: '16 / 9' })),
+      cell('Failed image: says so, offers Try again', h(D.MediaFrame, { src: 'missing-cover.png', alt: 'Freight platform cover', ratio: '16 / 9' })),
+      cell('No image yet, with overlay', h(D.MediaFrame, { alt: 'case-study cover', ratio: '16 / 9', overlay: h(F, null, h(D.Badge, { tone: 'onInk', size: 'sm' }, 'Case study'), h('h3', { style: { color: 'var(--on-ink-strong)', marginTop: 8 } }, 'One library, five brands')) })));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

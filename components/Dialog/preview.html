@@ -1,0 +1,35 @@
+<!-- @dsCard group="Feedback" height=420 subtitle="open form dialog · destructive confirm (button)" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Dialog — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    var a = React.useState(true), dlg = a[0], setDlg = a[1];
+    var b = React.useState(false), confirm = b[0], setConfirm = b[1];
+    return h(F, null,
+      h('div', { className: 'row' },
+        h(D.Button, { variant: 'ink', onClick: function () { setDlg(true); } }, 'Open form dialog'),
+        h(D.Button, { variant: 'secondary', onClick: function () { setConfirm(true); } }, 'Destructive confirm')),
+      h(D.Dialog, { open: dlg, onClose: function () { setDlg(false); }, title: 'Book an intro call', description: '30 minutes on video. I will send the invite within a day.',
+        actions: h(F, null, h(D.Button, { variant: 'secondary', onClick: function () { setDlg(false); } }, 'Not now'), h(D.Button, { onClick: function () { setDlg(false); } }, 'Request call')) },
+        h(D.Input, { label: 'Work email', type: 'email', required: true, placeholder: 'you@company.com' })),
+      h(D.Dialog, { open: confirm, onClose: function () { setConfirm(false); }, tone: 'danger', size: 'sm', title: 'Delete 3 saved answers?', description: 'They are removed from every device. This cannot be undone.',
+        actions: h(F, null, h(D.Button, { variant: 'secondary', onClick: function () { setConfirm(false); } }, 'Keep them'), h(D.Button, { variant: 'ink', onClick: function () { setConfirm(false); } }, 'Delete 3 answers')) }));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

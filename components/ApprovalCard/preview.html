@@ -1,0 +1,34 @@
+<!-- @dsCard group="AI patterns" height=430 subtitle="pending · risk levels · approved" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>ApprovalCard — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+  .grid.wide { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+  @media (max-width: 640px) { .grid.wide { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    return h('div', { className: 'grid wide' },
+      h(D.ApprovalCard, { agent: 'Scheduling agent', risk: 'medium', reversible: true, title: 'Move 4 design reviews to Thursday',
+        details: [{ label: 'Affects', value: '4 meetings, 9 people' }, { label: 'New time', value: 'Thu 21 Nov, 3:00 to 5:00 PM' }, { label: 'Why', value: 'Two reviewers are out on Wednesday' }],
+        onApprove: function () {}, onEdit: function () {}, onReject: function () {} },
+        'Everyone gets an update with the new time and the reason.'),
+      h('div', { className: 'stack' },
+        h(D.ApprovalCard, { agent: 'Publishing agent', risk: 'high', reversible: false, title: 'Publish the case study to the public site', onApprove: function () {}, onReject: function () {} }),
+        h(D.ApprovalCard, { agent: 'Scheduling agent', status: 'approved', decidedBy: 'Aleem', title: 'Book a 30-minute intro call' })));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

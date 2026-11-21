@@ -1,0 +1,480 @@
+/* Aleem Design System — generated from tokens.json */
+:root, [data-theme="light"] {
+  --navy-950: #040c16; /* Deepest navy: `surface-sunken` and `surface-ink` in the dark theme. */
+  --navy-900: #06121f; /* Dark-theme page ground (`surface-page` in dark). */
+  --navy-850: #0e2440; /* Dark-theme card (`surface-card` in dark). */
+  --navy-800: #0b1f36; /* Core brand navy, the mascot ink: `text-strong`, `surface-ink` and `action-ink` in light; label on the white on-ink solid button. */
+  --navy-700: #12304f; /* Dark-theme raised surface and tile; `action-ink-hover` in light; initials text on `navy-100`. */
+  --navy-600: #1b4068; /* Navy scale step; components use the semantic aliases, not this. */
+  --navy-500: #2a547f; /* Dark-theme disabled text (`text-disabled` in dark), decorative only. */
+  --navy-400: #4c7197; /* Navy scale step; components use the semantic aliases, not this. */
+  --navy-300: #8197af; /* Navy scale step; components use the semantic aliases, not this. */
+  --navy-200: #bcc7d5; /* Dark-theme muted text (`text-muted` in dark); `action-ink-active` in dark. */
+  --navy-100: #dee4ec; /* Dark-theme body text (`text-body` in dark); fill of the initials Avatar. */
+  --blue-800: #0f55b2; /* Link hover (`text-link-hover`): 7.1:1 on white. Link hover: 7.1:1 on white. */
+  --blue-700: #1568d4; /* Links and info text (`text-link`, `text-info`), `action-primary-active`, eyebrow-pill text, start of `--gradient-brand-deep`. */
+  --blue-600: #1b79ec; /* Primary action hover; feature-tile glyph on `blue-100`. */
+  --blue-500: #258afd; /* Primary action fill (`action-primary`), focus border (`border-focus`), info fill, start of `--gradient-brand`. Gradient start. */
+  --blue-400: #5aa7fe; /* Dark-theme link and focus border; dark primary hover. */
+  --blue-300: #91c4fe; /* Dark-theme link hover and info text; eyebrow-pill text in dark. */
+  --blue-200: #c2deff; /* Light blue tint step; components use the semantic aliases, not this. */
+  --blue-100: #e6f1ff; /* Info surface (`surface-info`), eyebrow pill, feature icon tile, ghost hover. */
+  --cyan-700: #0e7f9e; /* AA-safe cyan, end of `--gradient-brand-deep`; white text on it holds 4.5:1. AA-safe cyan: white text ≥ 4.5:1. */
+  --cyan-800: #095a70; /* Text on `cyan-100`. AA text on cyan-100 (5.2:1). */
+  --cyan-600: #169fc0; /* Cyan scale step; components use the semantic aliases, not this. */
+  --cyan-500: #29bedd; /* End of `--gradient-brand`; capability-tag dots on FeatureCard. Gradient end. */
+  --cyan-400: #5fd0e8; /* On-ink link and on-ink info tone (`on-ink-link`, `on-ink-info`): 9.2:1 on navy. */
+  --cyan-300: #95e1f0; /* Cyan scale step; components use the semantic aliases, not this. */
+  --cyan-200: #c4eef8; /* Text selection background (with `navy-800` text). */
+  --cyan-100: #e6f8fc; /* Cyan tint surface; text on it is `cyan-800`. */
+  --white: #ffffff; /* Card and raised surfaces in light (`surface-card`, `surface-raised`); `text-on-brand`. */
+  --slate-50: #f4f5fa; /* Page surface (`surface-page`) and tiles in light; secondary hover. */
+  --slate-100: #eceef4; /* Sunken surface (`surface-sunken`) in light. */
+  --slate-150: #e2e5ee; /* Hairline border (`border-subtle`) in light. */
+  --slate-200: #d5d9e4; /* Default border (`border-default`) in light. */
+  --slate-300: #b9bfcf; /* Strong border (`border-strong`) in light, decorative only. */
+  --slate-400: #939bae; /* Disabled text (`text-disabled`), decorative only; offline presence dot. */
+  --slate-500: #6e7689; /* Interactive border (`border-interactive`), the only border allowed as a sole affordance. */
+  --slate-550: #636b7e; /* 4.6:1 on the page surface, 5.1:1 on white. */
+  --slate-600: #525a6b; /* Muted text (`text-muted`) in light. */
+  --slate-700: #3b4253; /* Body text (`text-body`) in light. */
+  --slate-800: #262c3a; /* Slate scale step; components use the semantic aliases, not this. */
+  --slate-900: #151a26; /* Slate scale step; components use the semantic aliases, not this. */
+  --green-700: #0e7a4e; /* Success text (`text-success`) on `green-100` and white; success progress fill. AA text on green-100 / white. */
+  --green-500: #1fb877; /* Success fill (`fill-success`), positive-metric dots and large text only; `accent-mint`. Success / positive metric (fills, dots, large text only). */
+  --green-100: #dcf6ec; /* Success surface (`surface-success`); text on it is `green-700`. */
+  --amber-700: #7a4f00; /* Warning text (`text-warning`) on `amber-100`; warning progress fill. AA text on amber-100. */
+  --amber-500: #f5a524; /* Warning fill (`fill-warning`): dots, bars, borders. */
+  --amber-100: #fdf0d9; /* Warning surface (`surface-warning`); text on it is `amber-700`. */
+  --red-700: #b42318; /* Danger text (`text-danger`) on `red-100` and white; danger progress fill. AA text on red-100 / white. */
+  --red-500: #e5484d; /* Danger fill (`fill-danger`): dots, borders, failed-message edge. Error / negative (fills, borders). */
+  --red-100: #fbe3e4; /* Danger surface (`surface-danger`); text on it is `red-700`. */
+  --text-strong: var(--navy-800); /* Headings and emphasised text on `surface-page` and `surface-card`. */
+  --text-body: var(--slate-700); /* Body copy on `surface-page` and `surface-card`. */
+  --text-muted: var(--slate-600); /* Secondary copy on `surface-page` and `surface-card`. 6.5:1 on page, AA for body copy. */
+  --text-subtle: var(--slate-550); /* Captions, labels and placeholders on `surface-page` and `surface-card`. 4.6:1 on page, captions/labels minimum. */
+  --text-disabled: var(--slate-400); /* Disabled labels; decorative only, never for information. Decorative only; never for information. */
+  --text-on-brand: var(--white); /* Labels on `--gradient-brand-deep` and other brand fills. */
+  --text-link: var(--blue-700); /* Links and ghost-button labels on `surface-page` and `surface-card`. 5.3:1 on white. */
+  --text-link-hover: var(--blue-800); /* Link hover on `surface-page` and `surface-card`. 7.1:1, hover never drops below AA. */
+  --text-success: var(--green-700); /* Success text on `surface-page`, `surface-card` and `surface-success`. */
+  --text-warning: var(--amber-700); /* Warning text on `surface-page`, `surface-card` and `surface-warning`. */
+  --text-danger: var(--red-700); /* Error text on `surface-page`, `surface-card` and `surface-danger`. */
+  --text-info: var(--blue-700); /* Info text on `surface-page`, `surface-card` and `surface-info`. */
+  --surface-info: var(--blue-100); /* Info tint behind Alert, Dialog tone and EmptyState tiles. */
+  --surface-success: var(--green-100); /* Success tint behind Alert and feedback tiles. */
+  --surface-warning: var(--amber-100); /* Warning tint behind Alert and feedback tiles. */
+  --surface-danger: var(--red-100); /* Danger tint behind Alert, failed states and destructive Dialogs. */
+  --border-info: rgba(37, 138, 253, 0.32); /* Hairline around `surface-info` panels. */
+  --border-success: rgba(31, 184, 119, 0.36); /* Hairline around `surface-success` panels. */
+  --border-warning: rgba(245, 165, 36, 0.42); /* Hairline around `surface-warning` panels. */
+  --border-danger: rgba(229, 72, 77, 0.34); /* Hairline around `surface-danger` panels. */
+  --fill-info: var(--blue-500); /* Info dots, bars and icons. */
+  --fill-success: var(--green-500); /* Success dots, bars, online presence. */
+  --fill-warning: var(--amber-500); /* Warning dots, bars, away presence. */
+  --fill-danger: var(--red-500); /* Danger dots, borders, busy presence and the failed ChatBubble edge. */
+  --surface-skeleton: #e4e7ef; /* Loading placeholder base (Skeleton). */
+  --surface-skeleton-shine: #f3f5f9; /* Skeleton shimmer highlight. */
+  --surface-page: var(--slate-50); /* Page ground: the cool off-white (light) or navy-900 (dark). */
+  --surface-card: var(--white); /* Cards, inputs, chat bubbles: white (light) or navy-850 (dark). */
+  --surface-raised: var(--white); /* Raised layers: menus, popovers, the dark-theme lifted card. */
+  --surface-sunken: var(--slate-100); /* Sunken wells, system chat notes, recessed rows. */
+  --surface-ink: var(--navy-800); /* Dark spotlight panels and ink buttons; text on it uses the `on-ink-*` tokens. */
+  --surface-tile: var(--slate-50); /* Icon and media tiles inside cards. */
+  --surface-header: rgba(255, 255, 255, 0.85); /* Sticky blurred header fill (with `blur-header`). */
+  --surface-overlay: rgba(11, 31, 54, 0.55); /* Modal scrim behind Dialog (with `blur-scrim`). */
+  --border-subtle: var(--slate-150); /* Card hairlines and dividers. */
+  --border-default: var(--slate-200); /* Default component borders. */
+  --border-strong: var(--slate-300); /* Emphasised dividers; decorative, never a sole affordance. */
+  --border-interactive: var(--slate-500); /* Input, select and secondary-button borders and the Toggle off-track: the only border allowed as a sole affordance. 4.6:1, the only border allowed as a sole affordance. */
+  --border-focus: var(--blue-500); /* Focus-visible outline colour on every control. */
+  --action-primary: var(--blue-500); /* Primary action fill. */
+  --action-primary-hover: var(--blue-600); /* Primary action hover. */
+  --action-primary-active: var(--blue-700); /* Primary action pressed. */
+  --action-ink: var(--navy-800); /* Ink button fill (navy in light, white in dark); its label is `surface-card`. */
+  --action-ink-hover: var(--navy-700); /* Ink button hover. */
+  --action-ink-active: var(--navy-900); /* Ink button pressed. */
+  --action-secondary-hover: var(--slate-50); /* Secondary button hover fill. */
+  --action-ghost-hover: var(--blue-100); /* Ghost button hover fill. */
+  --focus-ring: rgba(37, 138, 253, 0.35); /* Soft halo around the focus outline (inside `--shadow-focus`). */
+  --accent-mint: var(--green-500); /* Mint accent for positive highlights (fills only). */
+  --on-ink-strong: #ffffff; /* Headings and solid controls on `surface-ink` / `--gradient-ink`; theme-stable. */
+  --on-ink-body: rgba(255, 255, 255, 0.78); /* Body copy on `surface-ink` / `--gradient-ink`; theme-stable. 10.5:1. */
+  --on-ink-muted: rgba(255, 255, 255, 0.64); /* Secondary copy on `surface-ink`; theme-stable. 7.4:1. */
+  --on-ink-link: var(--cyan-400); /* Links on `surface-ink`; theme-stable. 9.2:1. */
+  --on-ink-border: rgba(255, 255, 255, 0.12); /* Hairlines on ink panels. */
+  --on-ink-border-strong: rgba(255, 255, 255, 0.36); /* Control boundary on `surface-ink`; theme-stable. 3.1:1 on navy-800: usable as a control boundary. */
+  --on-ink-fill: rgba(255, 255, 255, 0.08); /* Subtle fills on ink panels. */
+  --on-ink-fill-hover: rgba(255, 255, 255, 0.14); /* Hover fill on ink panels. */
+  --on-ink-info: var(--cyan-400); /* Info tone on ink (Toast, ink panels). Feedback tones over ink (Toast, ink panels). */
+  --on-ink-success: #5fd9a5; /* Success tone on ink (Toast, ink panels). */
+  --on-ink-warning: #ffc766; /* Warning tone on ink (Toast, ink panels). */
+  --on-ink-danger: #ff8a8e; /* Danger tone on ink (Toast, ink panels). */
+  --shadow-xs: 0 1px 2px rgba(11, 31, 54, 0.06); /* Inputs, chat bubbles, secondary buttons at rest. */
+  --shadow-sm: 0 2px 8px rgba(11, 31, 54, 0.06); /* Cards at rest; ink buttons. */
+  --shadow-md: 0 8px 24px rgba(11, 31, 54, 0.08); /* Hovered ink buttons, popovers. */
+  --shadow-lg: 0 18px 48px rgba(11, 31, 54, 0.10); /* Cards on hover (lift), toasts. */
+  --shadow-xl: 0 32px 72px rgba(11, 31, 54, 0.14); /* Dialogs and the highest overlays. */
+  --shadow-brand: 0 12px 32px rgba(37, 138, 253, 0.28); /* Coloured blue glow under primary buttons. */
+  --shadow-glow: 0 0 0 1px rgba(11,31,54,0.04), 0 0 40px rgba(41, 190, 221, 0.14); /* Soft cyan glow ring for spotlight elements; dark theme adds it to elevation. */
+}
+[data-theme="dark"] {
+  --text-strong: #ffffff;
+  --text-body: var(--navy-100);
+  --text-muted: var(--navy-200);
+  --text-subtle: #9db0c6;
+  --text-disabled: var(--navy-500);
+  --text-on-brand: #ffffff;
+  --text-link: var(--blue-400);
+  --text-link-hover: var(--blue-300);
+  --text-success: #5fd9a5;
+  --text-warning: #ffc766;
+  --text-danger: #ff8a8e;
+  --text-info: var(--blue-300);
+  --surface-info: rgba(37, 138, 253, 0.14);
+  --surface-success: rgba(31, 184, 119, 0.14);
+  --surface-warning: rgba(245, 165, 36, 0.14);
+  --surface-danger: rgba(229, 72, 77, 0.16);
+  --border-info: rgba(90, 167, 254, 0.40);
+  --border-success: rgba(95, 217, 165, 0.40);
+  --border-warning: rgba(255, 199, 102, 0.42);
+  --border-danger: rgba(255, 138, 142, 0.40);
+  --fill-info: var(--blue-500);
+  --fill-success: var(--green-500);
+  --fill-warning: var(--amber-500);
+  --fill-danger: var(--red-500);
+  --surface-skeleton: rgba(255, 255, 255, 0.08);
+  --surface-skeleton-shine: rgba(255, 255, 255, 0.15);
+  --surface-page: var(--navy-900);
+  --surface-card: var(--navy-850);
+  --surface-raised: var(--navy-700);
+  --surface-sunken: var(--navy-950);
+  --surface-ink: var(--navy-950);
+  --surface-tile: var(--navy-700);
+  --surface-header: rgba(6, 18, 31, 0.82);
+  --surface-overlay: rgba(4, 12, 22, 0.70);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-default: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.22);
+  --border-interactive: rgba(255, 255, 255, 0.48);
+  --border-focus: var(--blue-400);
+  --action-primary: var(--blue-500);
+  --action-primary-hover: var(--blue-400);
+  --action-primary-active: var(--blue-600);
+  --action-ink: #ffffff;
+  --action-ink-hover: var(--navy-100);
+  --action-ink-active: var(--navy-200);
+  --action-secondary-hover: var(--navy-700);
+  --action-ghost-hover: rgba(90, 167, 254, 0.14);
+  --focus-ring: rgba(90, 167, 254, 0.45);
+  --accent-mint: var(--green-500);
+  --on-ink-link: var(--cyan-400);
+  --on-ink-info: var(--cyan-400);
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.30);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.32);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.36);
+  --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.42);
+  --shadow-xl: 0 32px 72px rgba(0, 0, 0, 0.50);
+  --shadow-brand: 0 12px 32px rgba(37, 138, 253, 0.40);
+  --shadow-glow: 0 0 0 1px rgba(255,255,255,0.08), 0 0 48px rgba(41, 190, 221, 0.18);
+}
+:root {
+  --space-0: 0; /* No gap. */
+  --space-1: 4px; /* Icon-to-label nudges, tight inline gaps. */
+  --space-2: 8px; /* Gap inside buttons and pills. */
+  --space-3: 12px; /* Gap between small controls. */
+  --space-4: 16px; /* Default vertical stack (`--stack-gap`), card inner gaps. */
+  --space-5: 20px; /* Compact card padding. */
+  --space-6: 24px; /* Card padding (FeatureCard, Testimonial). */
+  --space-7: 28px; /* Roomy card padding. */
+  --space-8: 32px; /* Gap between card groups. */
+  --space-10: 40px; /* Split-hero column gap. */
+  --space-12: 48px; /* Section sub-blocks. */
+  --space-16: 64px; /* Large section spacing. */
+  --space-20: 80px; /* Hero padding. */
+  --space-24: 96px; /* Top of the section rhythm. */
+  --space-32: 128px; /* Largest spacer, hero breathing room. */
+  --radius-xs: 6px; /* Inline text actions, small focus targets. */
+  --radius-sm: 10px; /* Small tiles, menu items. */
+  --radius-md: 14px; /* Inputs, selects, icon tiles. */
+  --radius-lg: 18px; /* Cards (lower end), popovers. */
+  --radius-xl: 24px; /* Cards, bento tiles, feature and testimonial cards. */
+  --radius-2xl: 32px; /* Ink spotlight panels. */
+  --radius-pill: 999px; /* Buttons, chips, badges, eyebrow pills: fully pill-shaped. */
+  --radius-tile: 22.7%; /* The mascot tile corner, ~22.7% of its size; Avatar tiles. */
+  --text-display-2xl: 72px; /* Largest display headline (hero). */
+  --text-display-xl: 60px; /* Display headline. */
+  --text-display-lg: 48px; /* Display headline, section openers. */
+  --text-display-md: 40px; /* Smallest display step. */
+  --text-h1: 34px; /* Page title (h1). */
+  --text-h2: 28px; /* Section heading (h2). */
+  --text-h3: 22px; /* Sub-section heading (h3). */
+  --text-h4: 18px; /* Card titles (h4), FeatureCard heading. */
+  --text-body-lg: 18px; /* Lead paragraphs. */
+  --text-md: 16px; /* Body copy size; the body COLOUR is `text-body`. */
+  --text-body-sm: 14px; /* Secondary copy, StatCard label. */
+  --text-caption: 13px; /* Captions, metric labels, eyebrow pills. */
+  --text-overline: 12px; /* Overlines (`.cory-overline`), tag chips. */
+  --text-micro: 11px; /* Badge sm, legal, timestamps: the minimum size in the system. */
+  --text-ui-sm: 14px; /* Small control text, chat bubbles. */
+  --text-ui: 15px; /* Button, input, chip and tab text. */
+  --text-ui-lg: 17px; /* Large button text. */
+  --text-label: 13px; /* Field labels and hints. Field labels, hints. */
+  --text-metric-xl: clamp(56px, 7vw, 88px); /* Hero metric, fluid. */
+  --text-metric-lg: clamp(40px, 6vw, 56px); /* Headline metric (`.cory-metric`, StatCard), fluid. */
+  --text-metric-md: 36px; /* Testimonial metric. */
+  --text-metric-sm: 28px; /* Small metric. */
+  --text-fluid-display: clamp(40px, 5.6vw, 72px); /* Fluid display for marketing and portfolio pages. */
+  --text-fluid-title: clamp(32px, 4vw, 48px); /* Fluid title for marketing pages. */
+  --text-fluid-h2: clamp(24px, 2.8vw, 34px); /* Fluid section heading. */
+  --text-fluid-lead: clamp(16px, 1.5vw, 19px); /* Fluid lead paragraph. */
+  --text-mono-sm: 12px; /* Small mono readouts and code labels. */
+  --text-mono: 13px; /* Mono readouts and data. */
+  --text-mono-lg: 15px; /* Large mono readouts. */
+  --weight-regular: 400; /* Body copy. */
+  --weight-medium: 500; /* Quotes, tags, quiet emphasis. */
+  --weight-semibold: 600; /* Buttons, labels, UI text. */
+  --weight-bold: 700; /* Headings h1–h4, overlines. */
+  --weight-extrabold: 800; /* Display headlines and metrics. */
+  --leading-none: 1; /* Metrics and single-line numbers. */
+  --leading-tight: 1.05; /* Display headlines. */
+  --leading-snug: 1.18; /* Large titles on two lines. */
+  --leading-heading: 1.25; /* Headings h1–h4. */
+  --leading-normal: 1.5; /* Body copy (the default). */
+  --leading-relaxed: 1.65; /* Long-form and lead copy. */
+  --leading-mono: 1.7; /* Mono code blocks. */
+  --tracking-tighter: -0.03em; /* Display headlines and metrics. */
+  --tracking-tight: -0.018em; /* Headings h1–h4. */
+  --tracking-ui: -0.01em; /* Button and control labels. */
+  --tracking-normal: 0em; /* Body copy. */
+  --tracking-wide: 0.02em; /* Small caps-like labels. */
+  --tracking-overline: 0.14em; /* Uppercase overlines. */
+  --measure-body: 68ch; /* Max line length for body copy. */
+  --measure-lead: 56ch; /* Max line length for lead copy. */
+  --measure-display: 18ch; /* Max line length for display headlines. */
+  --border-width: 1px; /* Hairlines on cards, inputs and dividers. */
+  --border-width-strong: 2px; /* Focus outlines, selected chips. */
+  --opacity-disabled: 0.5; /* Disabled controls. */
+  --opacity-muted: 0.72; /* Muted decorative layers. */
+  --opacity-hover-media: 0.92; /* Media on hover. */
+  --blur-header: 12px; /* Sticky header backdrop blur. */
+  --blur-scrim: 6px; /* Modal scrim blur. */
+  --blur-glow: 48px; /* Radial glow softening (`.cory-ink`). */
+  --z-base: 0; /* Base layer. */
+  --z-raised: 10; /* Raised cards and sticky sub-elements. */
+  --z-sticky: 50; /* Sticky header. */
+  --z-overlay: 100; /* Scrims and overlays. */
+  --z-modal: 200; /* Dialogs. */
+  --z-toast: 300; /* Toast region. */
+  --z-tooltip: 400; /* Tooltips, the top layer. */
+  --aspect-video: 16 / 9; /* Video and MediaFrame default. */
+  --aspect-photo: 4 / 3; /* Photos. */
+  --aspect-square: 1 / 1; /* Square tiles. */
+  --aspect-portrait: 4 / 5; /* 4:5 portrait media and social posts. */
+  --aspect-story: 9 / 16; /* Stories and vertical video. */
+  --aspect-cover: 21 / 9; /* Wide covers. */
+  --gutter: clamp(16px, 2.5vw, 28px); /* Page edge padding, fluid 16–28px. */
+  --grid-gap: clamp(16px, 1.8vw, 24px); /* Card and bento gap, fluid 16–24px. */
+  --section-y: clamp(56px, 7vw, 96px); /* Vertical section padding, fluid 56–96px. */
+  --container-max: 1200px; /* Default container width (`.cory-container`). */
+  --container-wide: 1400px; /* Wide container. */
+  --container-narrow: 760px; /* Narrow container. */
+  --container-prose: 68ch; /* Prose container. */
+  --header-height: 72px; /* Sticky header height. */
+  --header-height-compact: 60px; /* Compact header height. */
+  --target-min: 24px; /* Smallest hit target for any control (WCAG 2.5.8); base styles apply it to buttons, tabs, switches, inputs and selects. */
+  --target-touch: 44px; /* Hit target on touch: coarse pointers and layouts under 768px. Small buttons grow to it on touch. */
+  --bp-sm: 640px; /* Small screens and up (640). Repeat literally in @media. */
+  --bp-md: 768px; /* Tablets and up (768). */
+  --bp-lg: 1024px; /* Laptops and up (1024): 12 columns, 4-column bento. */
+  --bp-xl: 1280px; /* Desktop (1280). */
+  --bp-2xl: 1536px; /* Wide desktop (1536). */
+  --font-sans: 'Plus Jakarta Sans', 'IBM Plex Sans Arabic', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'IBM Plex Sans Arabic', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'IBM Plex Sans Arabic', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-arabic: 'IBM Plex Sans Arabic', 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --text-type-display-2xl: 800 72px/1.05 var(--font-display); /* Hero headline. Size `text-display-2xl`, Extrabold, `tracking-tighter`. */
+  --text-type-display-xl: 800 60px/1.05 var(--font-display); /* Display headline. Size `text-display-xl`. */
+  --text-type-display-lg: 800 48px/1.18 var(--font-display); /* Section opener. Size `text-display-lg`. */
+  --text-type-display-md: 800 40px/1.18 var(--font-display); /* Smallest display step. Size `text-display-md`. */
+  --text-type-h1: 700 34px/1.25 var(--font-display); /* Page title, `text-strong`. Size `text-h1`. */
+  --text-type-h2: 700 28px/1.25 var(--font-display); /* Section heading. Size `text-h2`. */
+  --text-type-h3: 700 22px/1.25 var(--font-display); /* Sub-section heading. Size `text-h3`. */
+  --text-type-h4: 700 18px/1.25 var(--font-display); /* Card titles. Size `text-h4`. */
+  --text-type-body-lg: 400 18px/1.65 var(--font-sans); /* Lead paragraphs, `text-body`. Size `text-body-lg`. */
+  --text-type-body: 400 16px/1.5 var(--font-sans); /* Body copy, `text-body` on `surface-page`. Size `text-md`. */
+  --text-type-body-sm: 400 14px/1.5 var(--font-sans); /* Secondary copy. Size `text-body-sm`. */
+  --text-type-caption: 400 13px/1.5 var(--font-sans); /* Captions and metric labels, `text-muted`. Size `text-caption`. */
+  --text-type-overline: 700 12px/1.5 var(--font-sans); /* Uppercase overline in `text-link` (`.cory-overline`). Size `text-overline`. */
+  --text-type-micro: 500 11px/1.5 var(--font-sans); /* Timestamps, badge sm, legal: the minimum size. Size `text-micro`. */
+  --text-type-ui-lg: 600 17px/1.2 var(--font-sans); /* Large button label. Size `text-ui-lg`. */
+  --text-type-ui: 600 15px/1.2 var(--font-sans); /* Button, chip and tab label (`.cory-btn`). Size `text-ui`. */
+  --text-type-ui-sm: 600 14px/1.2 var(--font-sans); /* Small button label. Size `text-ui-sm`. */
+  --text-type-label: 600 13px/1.5 var(--font-sans); /* Field labels in `text-strong`. Size `text-label`. */
+  --text-type-metric-md: 800 36px/1 var(--font-display); /* Testimonial result number. Size `text-metric-md`; the fluid hero steps are `text-metric-lg` / `-xl`. */
+  --text-type-metric-sm: 800 28px/1 var(--font-display); /* Small metric. Size `text-metric-sm`. */
+  --text-type-mono-lg: 500 15px/1.7 var(--font-mono); /* Large readouts. Size `text-mono-lg`. */
+  --text-type-mono: 500 13px/1.7 var(--font-mono); /* Data readouts and token names. Size `text-mono`. */
+  --text-type-mono-sm: 500 12px/1.7 var(--font-mono); /* Small code labels. Size `text-mono-sm`. */
+}
+.type-display-2xl {
+  font-family: var(--font-display);
+  font-size: 72px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.type-display-xl {
+  font-family: var(--font-display);
+  font-size: 60px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.type-display-lg {
+  font-family: var(--font-display);
+  font-size: 48px;
+  line-height: 1.18;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.type-display-md {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 1.18;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.type-h1 {
+  font-family: var(--font-display);
+  font-size: 34px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.018em;
+}
+.type-h2 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.018em;
+}
+.type-h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.018em;
+}
+.type-h4 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.018em;
+}
+.type-body-lg {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.65;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.type-body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.type-body-sm {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.type-caption {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.type-overline {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+.type-micro {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.type-ui-lg {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.type-ui {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.type-ui-sm {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.type-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.type-metric-md {
+  font-family: var(--font-display);
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.type-metric-sm {
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.type-mono-lg {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.type-mono {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.type-mono-sm {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  font-weight: 500;
+  letter-spacing: 0;
+}

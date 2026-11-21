@@ -1,0 +1,30 @@
+<!-- @dsCard group="Forms" height=140 subtitle="date · date and time · range limits · error" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>DateField — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 10px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+  .panel { padding: 20px; border-radius: var(--radius-xl); background: var(--surface-card); border: 1px solid var(--border-subtle); }
+  .ink { padding: 20px; border-radius: var(--radius-xl); background: var(--gradient-ink); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    return h('div', { className: 'grid' },
+      h(D.DateField, { label: 'Intro call date', defaultValue: '2026-11-24', min: '2026-11-20', hint: 'Weekdays, India time.' }),
+      h(D.DateField, { label: 'Start', type: 'datetime-local', defaultValue: '2026-12-01T10:00', required: true }),
+      h(D.DateField, { label: 'Deadline', defaultValue: '2026-11-10', error: 'Pick a date after today.' }));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

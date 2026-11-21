@@ -1,0 +1,30 @@
+<!-- @dsCard group="Forms" height=260 subtitle="default · success · error · warning · validating" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Input — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    return h('div', { className: 'grid' },
+      h(D.Input, { id: 'i1', label: 'Your name', required: true, placeholder: 'Full name', defaultValue: 'Sara Al-Harbi' }),
+      h(D.Input, { id: 'i2', label: 'Work email', type: 'email', hint: 'Only used to reply to you', success: 'Looks good', defaultValue: 'sara@company.sa' }),
+      h(D.Input, { id: 'i3', label: 'Phone', type: 'tel', required: true, error: 'Add the country code, e.g. +966 5X XXX XXXX', defaultValue: '0501' }),
+      h(D.Input, { id: 'i4', label: 'Personal email', type: 'email', warning: 'Not a work address. Still reply here?', defaultValue: 'sara@gmail.com' }),
+      h(D.Input, { id: 'i5', label: 'Company website', loading: true, hint: 'Checking the link\u2026', defaultValue: 'company.sa' }));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

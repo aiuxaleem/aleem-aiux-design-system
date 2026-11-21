@@ -1,0 +1,31 @@
+<!-- @dsCard group="Surfaces" height=380 subtitle="card · list · one open · keyboard" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Accordion — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    var faq = [
+      { id: 'a', title: 'What kind of roles are you open to?', content: 'Lead or principal product design roles on AI products, especially agents and design systems. Remote, or on site in Riyadh, Dubai or Hyderabad.' },
+      { id: 'b', title: 'Do you design and build?', content: 'Yes. I design in Figma and ship tokens and React components, so the system in code matches the file.' },
+      { id: 'c', title: 'How do you make AI features trustworthy?', content: 'Show sources, show confidence, let people approve anything that acts for them, and make every action easy to undo.' }];
+    return h('div', { className: 'grid' },
+      h(D.Accordion, { items: faq, defaultOpen: ['a'] }),
+      h(D.Accordion, { items: faq, variant: 'list', defaultOpen: ['c'] }));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

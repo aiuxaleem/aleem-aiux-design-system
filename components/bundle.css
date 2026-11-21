@@ -1,0 +1,503 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap');
+/* Aleem Design System: component stylesheet. Previews load it after tokens.css; styles.css imports both for templates, kits and exports.
+   Every value tokens.json holds lives in tokens.css; this file carries what tokens.json has no place for:
+   gradients, glows, motion, direction, layout helpers and base element styling. */
+
+/* ---- from tokens/colors.css ---- */
+/* ===========================================================================
+   Aleem: Color tokens
+   Brand: deep navy ink + blue→cyan signal gradient on cool off-white surfaces.
+   Two themes: light (default) and dark. Switch with <html data-theme="dark">;
+   any element may also carry data-theme="light" or "dark" to pin a subtree (fixed artboards, previews);
+   ThemeToggle (or the one-line script at the bottom) applies the OS preference.
+   =========================================================================== */
+/* A pinned subtree must not inherit the page theme's text colour: `color` inherits as a computed value,
+   so re-resolve it against the subtree's own tokens. Zero specificity, any class or inline style still wins. */
+:where([data-theme]) { color: var(--text-body); }
+
+:root, [data-theme="light"] {
+  color-scheme: light;
+  /* --- Brand gradient --- */
+  --gradient-brand: linear-gradient(90deg, #258AFD 0%, #29BEDD 100%); /* @kind color */ /* decorative + large text (≥24px) */
+  --gradient-brand-135: linear-gradient(135deg, #258AFD 0%, #29BEDD 100%); /* @kind color */
+  --gradient-brand-deep: linear-gradient(90deg, #1568D4 0%, #0E7F9E 100%); /* @kind color */ /* white label passes AA at any size */
+  --gradient-brand-deep-135: linear-gradient(135deg, #1568D4 0%, #0E7F9E 100%); /* @kind color */ /* brand card / tile fill under white text */
+  --gradient-brand-text: linear-gradient(90deg, #1B79EC 0%, #1193B5 100%); /* @kind color */ /* text-clip gradient on light surfaces: both stops ≥3:1 on page and white (large text) */
+  --gradient-ink: linear-gradient(160deg, #12304F 0%, #0B1F36 100%); /* @kind color */
+
+  /* --- Glows (off-edge radial accents; the brand's substitute for texture) --- */
+  --glow-cyan: radial-gradient(circle, rgba(41, 190, 221, 0.35) 0%, rgba(41, 190, 221, 0) 70%); /* @kind color */
+  --glow-blue: radial-gradient(circle, rgba(37, 138, 253, 0.30) 0%, rgba(37, 138, 253, 0) 70%); /* @kind color */
+  --glow-cyan-strong: radial-gradient(circle, rgba(41, 190, 221, 0.55) 0%, rgba(41, 190, 221, 0) 70%); /* @kind color */
+}
+
+/* ===========================================================================
+   Dark theme: surfaces step up through navy; shadows become black + glow.
+   =========================================================================== */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --gradient-brand-text: var(--gradient-brand); /* @kind color */ /* on navy both stops pass */
+  --gradient-ink: linear-gradient(160deg, #0E2440 0%, #06121F 100%); /* @kind color */
+}
+
+/* OS preference: CSS can't alias a media query onto [data-theme], so set the
+   attribute once at load (ThemeToggle does this automatically):
+   <script>document.documentElement.dataset.theme ||= matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';</script> */
+
+/* ---- from tokens/layout.css ---- */
+/* ===========================================================================
+   Aleem: Spacing, radius, shadow, layer, layout tokens
+   8px base grid. Generous rounding (the brand's signature soft corners).
+   Motion lives in motion.css; breakpoints + grid helpers in responsive.css.
+   =========================================================================== */
+:root {
+  /* --- Gutters & rhythm (fluid; replace the hard-coded 20/28/72–80px) --- */
+  --stack-gap: var(--space-4);                 /* default vertical stack */
+  /* --- Shadows (soft, cool, low-spread, never harsh; dark theme overrides) --- */
+  --shadow-focus: 0 0 0 4px var(--focus-ring);
+}
+
+/* ---- from tokens/motion.css ---- */
+/* ===========================================================================
+   Aleem: Motion tokens
+   Restrained by default (fades, 3px lifts, 0.97 press); a cinematic tier for
+   portfolio reveals. Every animation here respects prefers-reduced-motion.
+   =========================================================================== */
+:root {
+  /* --- Easing --- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* @kind other */ /* default: hover, enter */
+  --ease-in: cubic-bezier(0.55, 0, 1, 0.45); /* @kind other */ /* exit */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */ /* move between places */
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1); /* @kind other */ /* light overshoot: chips, toggles */
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */ /* long reveals */
+
+  /* --- Duration --- */
+  --duration-instant: 80ms; /* @kind other */ /* color/opacity flicks */
+  --duration-fast: 140ms; /* @kind other */ /* press */
+  --duration-base: 220ms; /* @kind other */ /* hover, focus */
+  --duration-slow: 380ms; /* @kind other */ /* panels, menus */
+  --duration-enter: 600ms; /* @kind other */ /* content reveal */
+  --duration-cinematic: 900ms; /* @kind other */ /* hero reveal */
+  --duration-epic: 1200ms; /* @kind other */ /* page transitions, counters */
+  --duration-marquee: 32s; /* @kind other */
+
+  /* --- Delay / stagger --- */
+  --delay-1: 60ms; /* @kind other */
+  --delay-2: 120ms; /* @kind other */
+  --delay-3: 180ms; /* @kind other */
+  --delay-4: 240ms; /* @kind other */
+  --stagger: 70ms; /* @kind other */ /* per-item: calc(var(--i) * var(--stagger)) */
+
+  /* --- Distances --- */
+  --lift-hover: -3px; /* @kind other */
+  --lift-hover-lg: -6px; /* @kind other */
+  --press-scale: 0.97; /* @kind other */
+  --reveal-distance: 24px; /* @kind other */
+  --reveal-distance-lg: 48px; /* @kind other */
+  --parallax-depth: 0.12; /* multiplier for scroll-driven offsets */
+}
+
+/* --- Keyframe library --- */
+@keyframes cory-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes cory-fade-up { from { opacity: 0; transform: translateY(var(--reveal-distance, 24px)); } to { opacity: 1; transform: translateY(0); } }
+@keyframes cory-fade-down { from { opacity: 0; transform: translateY(calc(var(--reveal-distance, 24px) * -1)); } to { opacity: 1; transform: translateY(0); } }
+@keyframes cory-scale-in { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: scale(1); } }
+@keyframes cory-blur-in { from { opacity: 0; filter: blur(12px); transform: translateY(12px); } to { opacity: 1; filter: blur(0); transform: translateY(0); } }
+@keyframes cory-clip-up { from { clip-path: inset(100% 0 0 0); transform: translateY(20%); } to { clip-path: inset(0 0 0 0); transform: translateY(0); } }
+@keyframes cory-marquee { from { transform: translateX(0); } to { transform: translateX(calc(-50% * var(--dir, 1))); } }
+@keyframes cory-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+@keyframes cory-glow-drift { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(6%, -4%) scale(1.08); } 100% { transform: translate(0, 0) scale(1); } }
+@keyframes cory-shimmer { from { background-position: -200% 0; } to { background-position: 200% 0; } }
+@keyframes cory-count-in { from { opacity: 0; transform: translateY(0.35em) scale(0.96); filter: blur(6px); } to { opacity: 1; transform: none; filter: blur(0); } }
+@keyframes cory-draw-line { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes cory-ring { 0% { box-shadow: 0 0 0 0 var(--focus-ring); } 100% { box-shadow: 0 0 0 18px rgba(37, 138, 253, 0); } }
+@keyframes cory-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes cory-gradient-sweep { from { background-position: 100% 0; } to { background-position: 0 0; } }
+/* --- Status / feedback (Spinner, Button loading, ProgressBar, TypingIndicator). Components swap to static dots when reduced-motion is on. --- */
+@keyframes cory-spin { to { transform: rotate(360deg); } }
+@keyframes cory-progress-slide { from { transform: translateX(calc(-100% * var(--dir, 1))); } to { transform: translateX(calc(250% * var(--dir, 1))); } }
+@keyframes cory-typing { 0%, 60%, 100% { transform: translateY(0); opacity: 0.45; } 30% { transform: translateY(-3px); opacity: 1; } }
+@keyframes cory-toast-in { from { opacity: 0; transform: translateY(12px) scale(0.98); } to { opacity: 1; transform: none; } }
+
+/* --- Reveal utilities (set --i for stagger; add .is-visible via IntersectionObserver or use .cory-reveal-auto) --- */
+.cory-reveal { opacity: 0; transform: translateY(var(--reveal-distance)); transition: opacity var(--duration-enter) var(--ease-cinematic), transform var(--duration-enter) var(--ease-cinematic); transition-delay: calc(var(--i, 0) * var(--stagger)); }
+.cory-reveal.is-visible { opacity: 1; transform: none; }
+.cory-reveal-auto { animation: cory-fade-up var(--duration-enter) var(--ease-cinematic) both; animation-delay: calc(var(--i, 0) * var(--stagger)); }
+.cory-marquee { display: flex; width: max-content; gap: var(--space-10); animation: cory-marquee var(--duration-marquee) linear infinite; }
+.cory-marquee:hover { animation-play-state: paused; }
+.cory-glow-drift { animation: cory-glow-drift 14s var(--ease-in-out) infinite; }
+.cory-lift { transition: transform var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out); }
+.cory-lift:hover { transform: translateY(var(--lift-hover)); box-shadow: var(--shadow-lg); }
+.cory-float { animation: cory-float 4s var(--ease-in-out) infinite; }
+.cory-ring { position: relative; } .cory-ring::after { content: ""; position: absolute; inset: 0; border-radius: inherit; animation: cory-ring 2.2s var(--ease-out) infinite; pointer-events: none; }
+.cory-sweep { background-size: 220% 100%; animation: cory-gradient-sweep var(--duration-epic) var(--ease-in-out) both; }
+.cory-draw { transform-origin: left; animation: cory-draw-line var(--duration-cinematic) var(--ease-cinematic) both; }
+[dir="rtl"] .cory-draw { transform-origin: right; }
+
+/* --- Scroll reveal engine: data-reveal on any element, optional data-reveal="up|fade|scale|blur|clip", data-delay (ms), data-stagger on a parent to cascade its children.
+   Load tokens/reveal.js once per page (ds-base.js and the cards do). Elements are visible by default; the class below only applies once JS has registered them, so content never stays hidden. --- */
+html.cory-js [data-reveal]:not(.is-visible) { opacity: 0; transform: translateY(var(--reveal-distance)); }
+html.cory-js [data-reveal="fade"]:not(.is-visible) { transform: none; }
+html.cory-js [data-reveal="scale"]:not(.is-visible) { transform: scale(0.94); }
+html.cory-js [data-reveal="blur"]:not(.is-visible) { transform: translateY(12px); filter: blur(10px); }
+html.cory-js [data-reveal="clip"]:not(.is-visible) { clip-path: inset(100% 0 0 0); transform: translateY(16%); }
+html.cory-js [data-reveal="left"]:not(.is-visible) { transform: translateX(calc(var(--reveal-distance) * -1 * var(--dir, 1))); }
+html.cory-js [data-reveal] { transition: opacity var(--duration-enter) var(--ease-cinematic), transform var(--duration-enter) var(--ease-cinematic), filter var(--duration-enter) var(--ease-cinematic), clip-path var(--duration-cinematic) var(--ease-cinematic); transition-delay: var(--reveal-delay, 0ms); will-change: opacity, transform; }
+html.cory-js [data-reveal].is-visible { opacity: 1; transform: none; filter: none; clip-path: inset(0 0 0 0); }
+
+/* --- Scroll-driven (progressive enhancement; no-ops where unsupported) --- */
+@supports (animation-timeline: view()) {
+  .cory-reveal-scroll { animation: cory-fade-up linear both; animation-timeline: view(); animation-range: entry 0% entry 40%; }
+  .cory-parallax { animation: cory-parallax linear both; animation-timeline: view(); }
+  @keyframes cory-parallax { from { transform: translateY(calc(var(--parallax-depth) * 100px)); } to { transform: translateY(calc(var(--parallax-depth) * -100px)); } }
+}
+
+/* --- Reduced motion: keep state changes, drop movement --- */
+@media (prefers-reduced-motion: reduce) {
+  :root { --duration-enter: 1ms; /* @kind other */ --duration-cinematic: 1ms; /* @kind other */ --duration-epic: 1ms; /* @kind other */ --reveal-distance: 0px; /* @kind other */ --reveal-distance-lg: 0px; /* @kind other */ --lift-hover: 0px; /* @kind other */ --lift-hover-lg: 0px; /* @kind other */ --press-scale: 1; /* @kind other */ --parallax-depth: 0; /* @kind other */ }
+  .cory-reveal { opacity: 1; transform: none; transition: none; }
+  .cory-reveal-auto, .cory-marquee, .cory-glow-drift, .cory-reveal-scroll, .cory-parallax, .cory-float, .cory-ring::after, .cory-sweep, .cory-draw { animation: none !important; }
+  html.cory-js [data-reveal]:not(.is-visible) { opacity: 1; transform: none; filter: none; clip-path: none; }
+  *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; scroll-behavior: auto !important; }
+}
+
+/* ---- from tokens/responsive.css ---- */
+/* ===========================================================================
+   Aleem: Breakpoints, containers, responsive grid + bento helpers
+   Mobile-first. Custom properties can't drive @media, so the breakpoints are
+   declared once here (for JS / docs) and repeated literally in the queries.
+     sm 640  ·  md 768  ·  lg 1024  ·  xl 1280  ·  2xl 1536
+   =========================================================================== */
+:root {
+  --cols: 4; /* @kind other */ /* responsive column count, read by .cory-grid / .cory-bento */
+}
+@media (min-width: 640px)  { :root { --cols: 6; /* @kind other */ } }
+@media (min-width: 1024px) { :root { --cols: 12; /* @kind other */ } }
+
+/* --- Container --- */
+.cory-container { width: 100%; max-width: var(--container-max); margin-inline: auto; padding-inline: var(--gutter); }
+.cory-container-narrow { max-width: var(--container-narrow); }
+.cory-container-wide { max-width: var(--container-wide); }
+.cory-section { padding-block: var(--section-y); }
+
+/* --- Column grid: 4 / 6 / 12 tracks. Children use grid-column: span N (clamped to --cols) --- */
+.cory-grid { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); gap: var(--grid-gap); }
+.cory-grid > * { grid-column: span min(var(--span, var(--cols)), var(--cols)); min-width: 0; }
+
+/* --- Auto-fit card grid: columns appear as space allows (replaces fixed repeat(3,1fr)) --- */
+.cory-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-min, 280px)), 1fr)); gap: var(--grid-gap); }
+
+/* --- Bento: square-ish tiles with span rules; collapses to single column on phones --- */
+.cory-bento { display: grid; grid-template-columns: repeat(var(--bento-cols, 1), minmax(0, 1fr)); grid-auto-rows: minmax(var(--bento-row, 180px), auto); grid-auto-flow: dense; gap: var(--grid-gap); }
+.cory-bento > * { min-width: 0; border-radius: var(--radius-xl); }
+.cory-bento .span-2 { grid-column: span min(2, var(--bento-cols, 1)); }
+.cory-bento .span-3 { grid-column: span min(3, var(--bento-cols, 1)); }
+.cory-bento .tall { grid-row: span 2; }
+.cory-bento .hero { grid-column: span min(2, var(--bento-cols, 1)); grid-row: span 2; }
+@media (min-width: 640px)  { .cory-bento { --bento-cols: 2; /* @kind other */ } }
+@media (min-width: 1024px) { .cory-bento { --bento-cols: 4; /* @kind other */ --bento-row: 200px; /* @kind other */ } }
+
+/* --- Split (hero two-column that stacks) --- */
+.cory-split { display: grid; grid-template-columns: 1fr; gap: var(--space-10); align-items: center; }
+@media (min-width: 1024px) { .cory-split { grid-template-columns: 1.05fr 0.95fr; } }
+
+/* --- Visibility --- */
+@media (max-width: 767px) { .cory-hide-mobile { display: none !important; } }
+@media (min-width: 768px) { .cory-hide-desktop { display: none !important; } }
+
+/* ---- from tokens/direction.css ---- */
+/* ===========================================================================
+   Aleem: Direction (LTR and RTL)
+   Set dir (and lang) on <html>, or on any subtree; DirectionToggle does both.
+   Layout everywhere uses logical properties (inline-start / inline-end), so the
+   page mirrors by itself. Only direction-dependent VALUES live in this file.
+   =========================================================================== */
+:root {
+  --dir: 1; /* @kind other */ /* multiply horizontal motion by this: translateX(calc(8px * var(--dir))) */
+}
+
+[dir="rtl"] {
+  --dir: -1; /* @kind other */
+  /* The signal gradient reads in the direction of the script */
+  --gradient-brand: linear-gradient(270deg, #258AFD 0%, #29BEDD 100%); /* @kind color */
+  --gradient-brand-135: linear-gradient(225deg, #258AFD 0%, #29BEDD 100%); /* @kind color */
+  --gradient-brand-deep: linear-gradient(270deg, #1568D4 0%, #0E7F9E 100%); /* @kind color */
+  --gradient-brand-deep-135: linear-gradient(225deg, #1568D4 0%, #0E7F9E 100%); /* @kind color */
+  --gradient-brand-text: linear-gradient(270deg, #1B79EC 0%, #1193B5 100%); /* @kind color */
+  /* Negative tracking breaks connected scripts; RTL runs at zero */
+  --tracking-tighter: 0em; /* @kind other */
+  --tracking-tight: 0em; /* @kind other */
+  --tracking-ui: 0em; /* @kind other */
+  --tracking-overline: 0.04em; /* @kind other */
+}
+
+/* Arabic-script metrics: taller ascenders and descenders need more leading */
+[lang|="ar"], [lang|="fa"], [lang|="ur"] {
+  --leading-tight: 1.3; /* @kind other */
+  --leading-snug: 1.4; /* @kind other */
+  --leading-heading: 1.45; /* @kind other */
+  --leading-normal: 1.7; /* @kind other */
+  --leading-relaxed: 1.85; /* @kind other */
+}
+:is([lang|="ar"], [lang|="fa"], [lang|="ur"]) :is(*, *::before, *::after) { letter-spacing: 0 !important; }
+/* Arabic glyphs read about one step smaller than Latin at the same size: lift the small steps, drop uppercase styling */
+:is([lang|="ar"], [lang|="fa"], [lang|="ur"]) {
+  --text-micro: 12px; /* @kind font */
+  --text-overline: 13px; /* @kind font */
+  --text-caption: 14px; /* @kind font */
+  --text-label: 14px; /* @kind font */
+}
+:is([lang|="ar"], [lang|="fa"], [lang|="ur"]) :is(.cory-overline, .cory-eyebrow-pill) { text-transform: none; }
+
+/* Things that are always LTR, even inside RTL: numbers, code, emails, URLs, phone numbers */
+.cory-ltr, .cory-metric, code, kbd, samp { direction: ltr; unicode-bidi: isolate; text-align: match-parent; }
+pre { direction: ltr; unicode-bidi: isolate; text-align: left; }
+[dir="rtl"] :is(input[type="email"], input[type="tel"], input[type="url"], input[type="number"]) { direction: ltr; text-align: right; }
+
+/* Directional icons mirror; symmetric icons (search, close, check, user) never do */
+[dir="rtl"] :is(.cory-flip-rtl, .lucide-arrow-right, .lucide-arrow-left, .lucide-chevron-right, .lucide-chevron-left, .lucide-chevrons-right, .lucide-chevrons-left, .lucide-arrow-up-right, .lucide-arrow-down-right, .lucide-move-right, .lucide-move-left, .lucide-log-in, .lucide-log-out, .lucide-corner-down-right, .lucide-reply, .lucide-undo-2, .lucide-redo-2) { transform: scaleX(-1); }
+
+/* Text arrows (→) that point "forward": mirror in RTL and nudge forward on hover */
+.cory-arrow { display: inline-block; transform: scaleX(var(--dir)); transition: transform var(--duration-base) var(--ease-out); }
+:is(a, button, .cory-btn):hover > .cory-arrow { transform: translateX(calc(4px * var(--dir))) scaleX(var(--dir)); }
+
+/* ---- from tokens/base.css ---- */
+/* ===========================================================================
+   Aleem: Base element styling & brand helpers
+   =========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+  color: var(--text-body);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color var(--duration-slow) var(--ease-out), color var(--duration-slow) var(--ease-out);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--text-strong);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-tight);
+  margin: 0;
+  text-wrap: balance;
+}
+p { text-wrap: pretty; }
+/* --- No text overflow, ever: long words wrap, flex/grid children may shrink, nothing is clipped by default --- */
+body { overflow-wrap: break-word; }
+h1, h2, h3, h4, .cory-metric { overflow-wrap: break-word; hyphens: manual; }
+:where(.cory-container, .cory-grid, .cory-cards, .cory-bento, .cory-split, .cory-section) > * { min-width: 0; }
+:where(.cory-btn, .cory-eyebrow-pill) { max-width: 100%; width: fit-content; text-align: center; }
+:where(.cory-btn) { white-space: nowrap; } /* button labels are 1-4 words; pills wrap whenever they need to */
+@media (max-width: 400px) { :where(.cory-btn, .cory-eyebrow-pill, button:not([role="switch"]):not([role="tab"]):not([aria-pressed]), [role="button"]) { white-space: normal !important; text-wrap: balance; } }
+/* Sentences always wrap. nowrap and ellipsis are reserved for .cory-nowrap: numbers, codes and 1-2 word labels */
+:where(p, li, dd, dt, blockquote, figcaption, h1, h2, h3, h4, label, legend, summary) { white-space: normal; text-overflow: clip; }
+.cory-nowrap { white-space: nowrap; }
+/* Long-form copy: cap the measure so lines stay readable (68ch body, 56ch lead) */
+.cory-prose :is(p, li, dd, blockquote, figcaption) { max-width: var(--measure-body, 68ch); }
+.cory-prose .cory-lead { max-width: var(--measure-lead, 56ch); }
+table { table-layout: fixed; width: 100%; }
+pre, code { overflow-wrap: anywhere; white-space: pre-wrap; }
+:not(pre) > code { white-space: nowrap; overflow-wrap: normal; } /* inline token names are one word: never split mid-name */
+img, video, svg { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--text-link); text-decoration: none; transition: color var(--duration-base) var(--ease-out); }
+a:hover { color: var(--text-link-hover); }
+/* --- Hover is never silent. Fallbacks at zero specificity for controls styled inline (an inline colour beats a:hover),
+   so every link and button answers the pointer even when a component forgot to. Component hover styles override these. --- */
+@media (hover: hover) {
+  :where(nav, footer, [role="navigation"]) a:not(.cory-btn):not(:has(img, svg, picture)):hover { text-decoration: underline !important; text-decoration-thickness: 1.5px !important; text-underline-offset: 4px; }
+  :where(nav, header, footer) a:not(.cory-btn):has(img, svg, picture):hover { filter: brightness(1.12) saturate(1.15); }
+  :where(footer) a:not(.cory-btn)[style*="underline"]:hover { text-decoration-thickness: 2.5px !important; filter: brightness(1.2); }
+  :where(button, [role="button"], [role="tab"], summary):not(:disabled, [aria-disabled="true"]):hover { filter: brightness(0.94); }
+  :where([data-theme="dark"]) :where(button, [role="button"], [role="tab"], summary):not(:disabled, [aria-disabled="true"]):hover { filter: brightness(1.18); }
+}
+:where(button, [role="button"], [role="tab"], summary):not(:disabled, [aria-disabled="true"]) { cursor: pointer; }
+
+/* --- Placeholders follow the theme: the browser default grey fails on dark surfaces. 4.6:1 in both themes. --- */
+::placeholder { color: var(--text-subtle); opacity: 1; }
+
+/* --- Focus: visible ring on keyboard focus only, everywhere --- */
+:focus { outline: none; }
+:focus-visible { outline: var(--border-width-strong) solid var(--border-focus); outline-offset: 2px; box-shadow: var(--shadow-focus); }
+
+/* --- Brand helpers --- */
+.cory-gradient-text {
+  background: var(--gradient-brand-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cory-overline {
+  font-size: var(--text-overline);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-overline);
+  text-transform: uppercase;
+  color: var(--text-link);
+}
+
+.cory-eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--blue-100);
+  color: var(--blue-700);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+}
+[data-theme="dark"] .cory-eyebrow-pill { background: rgba(90,167,254,0.16); color: var(--blue-300); }
+
+/* --- Ink panel: dark spotlight surface with on-ink text, identical in both themes --- */
+.cory-ink { background: var(--gradient-ink); color: var(--on-ink-body); border-radius: var(--radius-2xl); position: relative; overflow: hidden; isolation: isolate; }
+.cory-ink h1, .cory-ink h2, .cory-ink h3, .cory-ink h4 { color: var(--on-ink-strong); }
+.cory-ink a { color: var(--on-ink-link); }
+/* Any dark or brand surface: headings and links switch to on-ink tones so navy type can never sit on navy */
+.cory-on-ink h1, .cory-on-ink h2, .cory-on-ink h3, .cory-on-ink h4 { color: var(--on-ink-strong); }
+.cory-on-ink a { color: var(--on-ink-link); }
+.cory-ink::after { content: ""; position: absolute; width: 60%; aspect-ratio: 1; inset-inline-end: -20%; top: -30%; background: var(--glow-cyan); filter: blur(var(--blur-glow)); z-index: -1; pointer-events: none; }
+
+/* --- Sticky blurred header --- */
+.cory-header { position: sticky; top: 0; z-index: var(--z-sticky); height: var(--header-height); background: var(--surface-header); -webkit-backdrop-filter: blur(var(--blur-header)); backdrop-filter: blur(var(--blur-header)); border-bottom: var(--border-width) solid var(--border-subtle); }
+
+/* --- Scrim --- */
+.cory-scrim { position: fixed; inset: 0; z-index: var(--z-overlay); background: var(--surface-overlay); -webkit-backdrop-filter: blur(var(--blur-scrim)); backdrop-filter: blur(var(--blur-scrim)); }
+
+/* --- Metric --- */
+.cory-metric { font-family: var(--font-display); font-weight: var(--weight-extrabold); font-size: var(--text-metric-lg); line-height: var(--leading-none); letter-spacing: var(--tracking-tighter); color: var(--text-strong); }
+.cory-metric.cory-gradient-text, .cory-gradient-text { color: transparent; -webkit-text-fill-color: transparent; }
+
+.cory-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+/* Minimum pointer target for every control (WCAG 2.5.8): 24px, 44px on coarse pointers */
+:where(button, [role="button"], [role="tab"], [role="switch"], input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]), select, textarea) { min-height: 24px; min-width: 24px; }
+
+/* --- CTA buttons for plain-HTML surfaces (mirror of the React Button) --- */
+.cory-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 44px; padding: 11px 22px; border-radius: var(--radius-pill); border: var(--border-width) solid transparent; font-family: var(--font-sans); font-size: var(--text-ui); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-ui); line-height: 1.2; cursor: pointer; text-decoration: none; transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-base) var(--ease-out), background var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out), filter var(--duration-base) var(--ease-out); }
+.cory-btn:hover { transform: translateY(-1px); }
+.cory-btn:active { transform: scale(var(--press-scale)); }
+.cory-btn:focus-visible { outline: var(--border-width-strong) solid var(--border-focus); outline-offset: 2px; }
+.cory-btn[aria-disabled="true"], .cory-btn:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; transform: none; }
+.cory-btn-sm { min-height: 36px; padding: 8px 16px; font-size: var(--text-ui-sm); }
+.cory-btn-lg { min-height: 52px; padding: 15px 30px; font-size: var(--text-ui-lg); gap: var(--space-3); }
+.cory-btn-primary { background: var(--gradient-brand-deep); color: var(--text-on-brand); box-shadow: var(--shadow-brand); }
+.cory-btn-primary:hover { color: var(--text-on-brand); filter: brightness(1.08) saturate(1.05); box-shadow: var(--shadow-brand), var(--shadow-md); }
+.cory-btn-ink { background: var(--action-ink); color: var(--surface-card); box-shadow: var(--shadow-sm); }
+.cory-btn-ink:hover { background: var(--action-ink-hover); color: var(--surface-card); box-shadow: var(--shadow-md); }
+.cory-btn-secondary { background: var(--surface-card); color: var(--text-strong); border-color: var(--border-interactive); box-shadow: var(--shadow-xs); }
+.cory-btn-secondary:hover { background: var(--action-secondary-hover); color: var(--text-strong); box-shadow: var(--shadow-sm); }
+.cory-btn-ghost { background: transparent; color: var(--text-link); }
+.cory-btn-ghost:hover { background: var(--action-ghost-hover); color: var(--text-link-hover); }
+.cory-btn-on-ink { background: rgba(11, 31, 54, 0.45); color: var(--on-ink-strong); border-color: var(--on-ink-border-strong); }
+.cory-btn-on-ink:hover { background: var(--on-ink-fill-hover); color: var(--on-ink-strong); border-color: var(--on-ink-strong); }
+.cory-btn-on-ink-solid { background: var(--on-ink-strong); color: var(--navy-800); box-shadow: var(--shadow-md); }
+.cory-btn-on-ink-solid:hover { color: var(--navy-800); box-shadow: var(--shadow-lg), var(--shadow-glow); }
+
+::selection { background: var(--cyan-200); color: var(--navy-800); }
+
+/* ---- Mobile and viewport ---- */
+/* Anchored targets land below the sticky header. */
+:where([id]) { scroll-margin-top: calc(var(--header-height) + var(--space-4)); }
+/* Full-screen sections follow the small viewport on phones, so browser chrome never hides their foot. */
+.cory-screen { min-height: 100vh; min-height: 100svh; }
+/* Safe areas: with viewport-fit=cover, content and fixed controls stay clear of notches and the home bar.
+   env() is 0 without viewport-fit=cover, so these change nothing on other pages. */
+.cory-container { padding-inline: max(var(--gutter), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)); }
+.cory-safe-bottom { padding-bottom: max(var(--space-4), env(safe-area-inset-bottom, 0px)); }
+.cory-fixed-end { position: fixed; z-index: var(--z-sticky); inset-inline-end: max(var(--space-4), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)); bottom: max(var(--space-4), env(safe-area-inset-bottom, 0px)); }
+/* Deliberate horizontal scroller for wide tables and rails on small screens. */
+.cory-scroll-x { overflow-x: auto; overscroll-behavior-x: contain; scroll-padding-inline: var(--gutter); scroll-snap-type: x proximity; }
+/* Touch: form text at 16px so iOS never zooms on focus; small buttons grow to the touch target. */
+@media (pointer: coarse) {
+  :where(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), select, textarea) { font-size: max(16px, 1em) !important; }
+  .cory-btn-sm { min-height: var(--target-touch); }
+}
+/* Touch: no hover lift left stuck after a tap. */
+@media (hover: none) {
+  .cory-lift:hover, .cory-btn:hover { transform: none; }
+}
+/* Landscape phones: give the content its height back. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .cory-header { height: var(--header-height-compact); }
+}
+
+/* ---- AI patterns (v5) --------------------------------------------------- */
+/* Streaming caret in AIResponse; stops blinking under reduced motion. */
+@keyframes cory-blink { to { visibility: hidden; } }
+@media (prefers-reduced-motion: reduce) { .cory-caret { animation: none !important; } }
+/* Text actions inside AI components (Copy, Helpful, Regenerate): ghost hover tint. */
+.cory-ai-act { background: transparent; transition: background var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out); }
+.cory-ai-act:not([aria-pressed="true"]):hover { background: var(--action-ghost-hover); color: var(--text-link-hover) !important; }
+
+/* ---- Loading and states (v6) ----
+   .cory-skel draws every skeleton bone. One wave travels across the whole page in step
+   (background-attachment: fixed), so a grid of cards shimmers as one surface, not as a
+   dozen separate flickers. data-anim="pulse" breathes instead; data-anim="none" is still.
+   data-ink switches to the on-ink tint for navy panels. Reduced motion: solid, still tint. */
+.cory-skel {
+  background-color: var(--surface-skeleton);
+  background-image: linear-gradient(100deg, transparent 30%, var(--surface-skeleton-shine) 50%, transparent 70%);
+  background-size: 200% 100%; background-repeat: no-repeat; background-attachment: fixed;
+  animation: cory-skel-wave 1.8s var(--ease-in-out, ease-in-out) infinite;
+}
+.cory-skel[data-ink] { background-color: var(--on-ink-fill); background-image: linear-gradient(100deg, transparent 30%, var(--on-ink-fill-hover) 50%, transparent 70%); }
+.cory-skel[data-anim="pulse"] { background-image: none; animation: cory-skel-pulse 1.6s ease-in-out infinite; }
+.cory-skel[data-anim="none"] { background-image: none; animation: none; }
+[dir="rtl"] .cory-skel { animation-direction: reverse; }
+@keyframes cory-skel-wave { from { background-position: 150% 0; } to { background-position: -50% 0; } }
+@keyframes cory-skel-pulse { 50% { opacity: 0.55; } }
+/* Content arriving after a skeleton: a 200 ms fade, nothing that moves. */
+.cory-state-in { animation: cory-state-in var(--duration-base, 200ms) var(--ease-out) both; }
+@keyframes cory-state-in { from { opacity: 0; } to { opacity: 1; } }
+.cory-dot-pulse { animation: cory-skel-pulse 1.2s ease-in-out infinite; }
+.cory-spin-icon { animation: cory-spin 0.9s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .cory-skel, .cory-skel[data-ink] { animation: none !important; background-image: none !important; }
+  .cory-state-in, .cory-dot-pulse, .cory-spin-icon { animation: none !important; }
+}
+
+/* ---- Navigation and data (v7) ---- */
+.cory-skip-link { position: absolute; inset-inline-start: 12px; top: -64px; z-index: 5; padding: 10px 16px; border-radius: var(--radius-pill); background: var(--action-ink); color: var(--surface-card); font: 600 var(--text-ui-sm) var(--font-sans); text-decoration: none; transition: top var(--duration-fast) var(--ease-out); }
+.cory-skip-link:focus { top: 10px; }
+.cory-nav-links { display: flex; }
+.cory-nav-toggle { display: none; }
+.cory-nav-panel { display: none; }
+.cory-nav-link:hover { color: var(--text-strong) !important; background: var(--action-ghost-hover); }
+@media (max-width: 760px) {
+  .cory-nav-links, .cory-nav-action { display: none !important; }
+  .cory-nav-end { margin-inline-start: auto; }
+  .cory-nav-toggle { display: inline-flex; }
+  .cory-nav-panel:not([hidden]) { display: block; }
+}
+.cory-page-btn:not([aria-current]):not(:disabled):hover { background: var(--action-ghost-hover) !important; }
+.cory-tr:hover { background: var(--action-ghost-hover) !important; }
+.cory-th-sort:hover { color: var(--text-strong) !important; }
+
+/* ---- Footer, menu, date (v8) ---- */
+.cory-foot-link:hover { color: var(--text-link) !important; text-decoration: underline !important; }
+.cory-menu-btn:hover { background: var(--action-secondary-hover) !important; }
+.cory-menu-item:hover, .cory-menu-item:focus-visible { background: var(--action-ghost-hover) !important; outline: none; }
+.cory-menu-item:focus-visible { box-shadow: inset 0 0 0 2px var(--border-focus); }
+.cory-date { color-scheme: light; }
+[data-theme="dark"] .cory-date { color-scheme: dark; }
+
+/* ---- Signature (v9): the signal travels through the pills, one at a time, then rests. ---- */
+.cory-signal-pill { animation: cory-signal 7s var(--ease-in-out, ease-in-out) infinite both; }
+@keyframes cory-signal { 0%, 9%, 100% { filter: none; transform: none; } 3% { filter: brightness(1.7) saturate(1.3); transform: scaleX(1.04); } }
+@media (prefers-reduced-motion: reduce) { .cory-signal-pill { animation: none !important; } }
+
+/* Timeline on narrow containers: the period moves above the title, so titles get the full width. */
+@media (max-width: 560px) {
+  .cory-tl { grid-template-columns: 20px minmax(0, 1fr) !important; column-gap: 12px !important; }
+  .cory-tl-period { grid-column: 2; grid-row: 1; text-align: start !important; padding-top: 0 !important; }
+  .cory-tl-rail { grid-column: 1; grid-row: 1 / span 2; }
+  .cory-tl-body { grid-column: 2; grid-row: 2; }
+}

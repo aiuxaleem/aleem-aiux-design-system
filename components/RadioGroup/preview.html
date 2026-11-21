@@ -1,0 +1,32 @@
+<!-- @dsCard group="Forms" height=300 subtitle="list · horizontal · cards · error" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>RadioGroup — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    return h('div', { className: 'grid' },
+      h('div', { className: 'stack', style: { gap: 24 } },
+        h(D.RadioGroup, { label: 'How did you find my work?', defaultValue: 'linkedin', options: [{ value: 'linkedin', label: 'LinkedIn' }, { value: 'referral', label: 'A referral' }, { value: 'search', label: 'Search' }] }),
+        h(D.RadioGroup, { label: 'Best time to talk', orientation: 'horizontal', required: true, error: 'Pick a time so I can send an invite', options: [{ value: 'am', label: 'Morning' }, { value: 'pm', label: 'Afternoon' }, { value: 'eve', label: 'Evening' }] })),
+      h(D.RadioGroup, { label: 'What do you need?', variant: 'card', defaultValue: 'full', options: [
+        { value: 'full', label: 'Full-time role', hint: 'Lead or principal level', meta: 'Open' },
+        { value: 'contract', label: 'Contract project', hint: 'Design system or AI feature, 3 to 6 months' },
+        { value: 'talk', label: 'A talk or workshop', hint: 'Designing for trust in AI products' }] }));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

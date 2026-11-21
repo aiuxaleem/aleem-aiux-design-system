@@ -1,0 +1,8 @@
+/* ===========================================================================
+   Aleem Design System: global entry point
+   Consumers link this one file. Keep it to @import lines only.
+   tokens.css holds every token (compiled from tokens.json); components/bundle.css
+   holds fonts, gradients, glows, motion, direction, grid helpers and base styling.
+   =========================================================================== */
+@import url('./tokens.css');
+@import url('./components/bundle.css');

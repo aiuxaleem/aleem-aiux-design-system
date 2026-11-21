@@ -1,0 +1,664 @@
+{
+  "manifestVersion": 3,
+  "name": "Aleem Design System",
+  "namespace": "AleemDesignSystem_3de1ed",
+  "files": [
+    "404.html",
+    "assets/Logo/README.md",
+    "assets/Social/README.md",
+    "assets/notes/CLAUDE.from-standalone.md",
+    "assets/notes/COMPONENTS.md",
+    "assets/notes/MIGRATION-REPORT.md",
+    "assets/notes/SKILL.from-standalone.md",
+    "assets/previews/README.md",
+    "components/AIResponse/AIResponse.d.ts",
+    "components/AIResponse/README.md",
+    "components/Accordion/Accordion.d.ts",
+    "components/Accordion/README.md",
+    "components/AgentSteps/AgentSteps.d.ts",
+    "components/AgentSteps/README.md",
+    "components/Alert/Alert.d.ts",
+    "components/Alert/README.md",
+    "components/ApprovalCard/ApprovalCard.d.ts",
+    "components/ApprovalCard/README.md",
+    "components/Avatar/Avatar.d.ts",
+    "components/Avatar/README.md",
+    "components/Badge/Badge.d.ts",
+    "components/Badge/README.md",
+    "components/Breadcrumb/Breadcrumb.d.ts",
+    "components/Breadcrumb/README.md",
+    "components/Button/Button.d.ts",
+    "components/Button/README.md",
+    "components/Card/Card.d.ts",
+    "components/Card/README.md",
+    "components/ChatBubble/ChatBubble.d.ts",
+    "components/ChatBubble/README.md",
+    "components/Checkbox/Checkbox.d.ts",
+    "components/Checkbox/README.md",
+    "components/Chip/Chip.d.ts",
+    "components/Chip/README.md",
+    "components/ConfidenceMeter/ConfidenceMeter.d.ts",
+    "components/ConfidenceMeter/README.md",
+    "components/DateField/DateField.d.ts",
+    "components/DateField/README.md",
+    "components/Dialog/Dialog.d.ts",
+    "components/Dialog/README.md",
+    "components/DirectionToggle/DirectionToggle.d.ts",
+    "components/DirectionToggle/README.md",
+    "components/EmptyState/EmptyState.d.ts",
+    "components/EmptyState/README.md",
+    "components/ErrorState/ErrorState.d.ts",
+    "components/ErrorState/README.md",
+    "components/FeatureCard/FeatureCard.d.ts",
+    "components/FeatureCard/README.md",
+    "components/Hero/Hero.d.ts",
+    "components/Hero/README.md",
+    "components/Icon/Icon.d.ts",
+    "components/Icon/README.md",
+    "components/IconButton/IconButton.d.ts",
+    "components/IconButton/README.md",
+    "components/Illustration/Illustration.d.ts",
+    "components/Illustration/README.md",
+    "components/Input/Input.d.ts",
+    "components/Input/README.md",
+    "components/LoadingRegion/LoadingRegion.d.ts",
+    "components/LoadingRegion/README.md",
+    "components/MediaFrame/MediaFrame.d.ts",
+    "components/MediaFrame/README.md",
+    "components/Menu/Menu.d.ts",
+    "components/Menu/README.md",
+    "components/Pagination/Pagination.d.ts",
+    "components/Pagination/README.md",
+    "components/PortfolioHome/README.md",
+    "components/ProgressBar/ProgressBar.d.ts",
+    "components/ProgressBar/README.md",
+    "components/ProjectCard/ProjectCard.d.ts",
+    "components/ProjectCard/README.md",
+    "components/PromptInput/PromptInput.d.ts",
+    "components/PromptInput/README.md",
+    "components/RadioGroup/README.md",
+    "components/RadioGroup/RadioGroup.d.ts",
+    "components/Select/README.md",
+    "components/Select/Select.d.ts",
+    "components/SignalPattern/README.md",
+    "components/SignalPattern/SignalPattern.d.ts",
+    "components/SiteFooter/README.md",
+    "components/SiteFooter/SiteFooter.d.ts",
+    "components/SiteHeader/README.md",
+    "components/SiteHeader/SiteHeader.d.ts",
+    "components/Skeleton/README.md",
+    "components/Skeleton/Skeleton.d.ts",
+    "components/SkeletonPreset/README.md",
+    "components/Spinner/README.md",
+    "components/Spinner/Spinner.d.ts",
+    "components/StatCard/README.md",
+    "components/StatCard/StatCard.d.ts",
+    "components/StateView/README.md",
+    "components/StateView/StateView.d.ts",
+    "components/Stepper/README.md",
+    "components/Stepper/Stepper.d.ts",
+    "components/Table/README.md",
+    "components/Table/Table.d.ts",
+    "components/Tabs/README.md",
+    "components/Tabs/Tabs.d.ts",
+    "components/Testimonial/README.md",
+    "components/Testimonial/Testimonial.d.ts",
+    "components/Textarea/README.md",
+    "components/Textarea/Textarea.d.ts",
+    "components/ThemeToggle/README.md",
+    "components/ThemeToggle/ThemeToggle.d.ts",
+    "components/Timeline/README.md",
+    "components/Timeline/Timeline.d.ts",
+    "components/Toast/README.md",
+    "components/Toast/Toast.d.ts",
+    "components/Toggle/README.md",
+    "components/Toggle/Toggle.d.ts",
+    "components/Tooltip/README.md",
+    "components/Tooltip/Tooltip.d.ts",
+    "components/TypingIndicator/README.md",
+    "components/TypingIndicator/TypingIndicator.d.ts",
+    "components/bundle.css",
+    "components/bundle.js",
+    "components/content/content.card.html",
+    "components/core/core.card.html",
+    "components/feedback/feedback.card.html",
+    "components/forms/forms.card.html",
+    "components/index.d.ts",
+    "components/status/status.card.html",
+    "components/surfaces/surfaces.card.html",
+    "docs/NotebookLM Style Guide.html",
+    "docs/index.html",
+    "github.md",
+    "guidelines/cards/brand-logo.html",
+    "guidelines/cards/brand-mascot.html",
+    "guidelines/cards/brand-voice.html",
+    "guidelines/cards/color-blue.html",
+    "guidelines/cards/color-contrast.html",
+    "guidelines/cards/color-cyan.html",
+    "guidelines/cards/color-dark.html",
+    "guidelines/cards/color-gradient.html",
+    "guidelines/cards/color-navy.html",
+    "guidelines/cards/color-neutral.html",
+    "guidelines/cards/color-semantic.html",
+    "guidelines/cards/motion-reveal.html",
+    "guidelines/cards/motion-scale.html",
+    "guidelines/cards/spacing-radius.html",
+    "guidelines/cards/spacing-responsive.html",
+    "guidelines/cards/spacing-scale.html",
+    "guidelines/cards/spacing-shadow.html",
+    "guidelines/cards/start-direction.html",
+    "guidelines/cards/start-here.html",
+    "guidelines/cards/start-loading.html",
+    "guidelines/cards/start-states.html",
+    "guidelines/cards/start-which-control.html",
+    "guidelines/cards/type-body.html",
+    "guidelines/cards/type-display.html",
+    "guidelines/cards/type-headings.html",
+    "guidelines/cards/type-metric.html",
+    "guidelines/cards/type-rules.html",
+    "guidelines/creative-quality-bar.md",
+    "guidelines/heuristic-audit.md",
+    "guidelines/laws-of-ux.md",
+    "guidelines/responsive-and-mobile.md",
+    "guidelines/states-audit.md",
+    "posts/ai-ready-design-system/AiReadyDesignSystem.dc.html",
+    "posts/ai-ready-design-system/ds-base.js",
+    "posts/ai-ready-design-system/post-caption.md",
+    "posts/ai-ready-design-system/support.js",
+    "posts/career-shapes/CareerShapes.dc.html",
+    "posts/career-shapes/ds-base.js",
+    "posts/career-shapes/post-caption.md",
+    "posts/career-shapes/support.js",
+    "posts/code-layers-bento/CodeLayersBento.dc.html",
+    "posts/code-layers-bento/ds-base.js",
+    "posts/code-layers-bento/post-caption.md",
+    "posts/code-layers-bento/support.js",
+    "posts/design-principles/DesignPrinciples.dc.html",
+    "posts/design-principles/ds-base.js",
+    "posts/design-principles/post-caption.md",
+    "posts/design-principles/support.js",
+    "posts/figma-agent-canvas-v2/FigmaAgentCanvasV2.dc.html",
+    "posts/figma-agent-canvas-v2/ds-base.js",
+    "posts/figma-agent-canvas-v2/post-caption.md",
+    "posts/figma-agent-canvas-v2/support.js",
+    "posts/figma-agent-canvas/FigmaAgentCanvas.dc.html",
+    "posts/figma-agent-canvas/ds-base.js",
+    "posts/figma-agent-canvas/post-caption.md",
+    "posts/figma-agent-canvas/support.js",
+    "posts/figma-motion-timeline-v2/FigmaMotionTimelineV2.dc.html",
+    "posts/figma-motion-timeline-v2/ds-base.js",
+    "posts/figma-motion-timeline-v2/post-caption.md",
+    "posts/figma-motion-timeline-v2/support.js",
+    "posts/figma-motion-timeline/FigmaMotionTimeline.dc.html",
+    "posts/figma-motion-timeline/ds-base.js",
+    "posts/figma-motion-timeline/post-caption.md",
+    "posts/figma-motion-timeline/support.js",
+    "posts/figma-weave-node-workflows/FigmaWeaveNodeWorkflows.dc.html",
+    "posts/figma-weave-node-workflows/ds-base.js",
+    "posts/figma-weave-node-workflows/post-caption.md",
+    "posts/figma-weave-node-workflows/support.js",
+    "posts/linkedin-profile-cover/LinkedinProfileCover.dc.html",
+    "posts/linkedin-profile-cover/ds-base.js",
+    "posts/linkedin-profile-cover/readme.md",
+    "posts/linkedin-profile-cover/support.js",
+    "posts/readme.md",
+    "posts/ruflow-ecosystem-bento/RuflowEcosystemBento.dc.html",
+    "posts/ruflow-ecosystem-bento/ds-base.js",
+    "posts/ruflow-ecosystem-bento/post-caption.md",
+    "posts/ruflow-ecosystem-bento/support.js",
+    "posts/ruflow-ecosystem-v2/RuflowEcosystemV2.dc.html",
+    "posts/ruflow-ecosystem-v2/ds-base.js",
+    "posts/ruflow-ecosystem-v2/support.js",
+    "posts/ruflow-ecosystem-v3/RuflowEcosystemV3.dc.html",
+    "posts/ruflow-ecosystem-v3/ds-base.js",
+    "posts/ruflow-ecosystem-v3/post-caption.md",
+    "posts/ruflow-ecosystem-v3/support.js",
+    "posts/traditional-ux-vs-ai-ux/TraditionalUxVsAiUx.dc.html",
+    "posts/traditional-ux-vs-ai-ux/ds-base.js",
+    "posts/traditional-ux-vs-ai-ux/post-caption.md",
+    "posts/traditional-ux-vs-ai-ux/support.js",
+    "scripts/doc-page.js",
+    "scripts/png-export.js",
+    "scripts/render-dc-offline.js",
+    "scripts/render-post-png.js",
+    "scripts/showcase-i18n.js",
+    "scripts/showcase.js",
+    "templates/ai-books-bento/AiBooksBento.dc.html",
+    "templates/ai-books-bento/ds-base.js",
+    "templates/ai-books-bento/support.js",
+    "templates/ai-books-carousel/AiBooksCarousel.dc.html",
+    "templates/ai-books-carousel/ds-base.js",
+    "templates/ai-books-carousel/support.js",
+    "templates/before-after-ai-bento/BeforeAfterAiBento.dc.html",
+    "templates/before-after-ai-bento/ds-base.js",
+    "templates/before-after-ai-bento/support.js",
+    "templates/claude-skills-bento/ClaudeSkillsBento.dc.html",
+    "templates/claude-skills-bento/ds-base.js",
+    "templates/claude-skills-bento/support.js",
+    "templates/component-specs-bento/ComponentSpecsBento.dc.html",
+    "templates/component-specs-bento/ds-base.js",
+    "templates/component-specs-bento/support.js",
+    "templates/component-specs-cover/ComponentSpecsCover.dc.html",
+    "templates/component-specs-cover/ds-base.js",
+    "templates/component-specs-cover/support.js",
+    "templates/design-feedback-bento/DesignFeedbackBento.dc.html",
+    "templates/design-feedback-bento/ds-base.js",
+    "templates/design-feedback-bento/image-slot.js",
+    "templates/design-feedback-bento/support.js",
+    "templates/devday-recap-bento/DevdayRecapBento.dc.html",
+    "templates/devday-recap-bento/ds-base.js",
+    "templates/devday-recap-bento/support.js",
+    "templates/directory-map-bento/DirectoryMapBento.dc.html",
+    "templates/directory-map-bento/ds-base.js",
+    "templates/directory-map-bento/support.js",
+    "templates/figma-plugins-bento/FigmaPluginsBento.dc.html",
+    "templates/figma-plugins-bento/ds-base.js",
+    "templates/figma-plugins-bento/support.js",
+    "templates/hcd-funnel-bento/HcdFunnelBento.dc.html",
+    "templates/hcd-funnel-bento/ds-base.js",
+    "templates/hcd-funnel-bento/image-slot.js",
+    "templates/hcd-funnel-bento/support.js",
+    "templates/hcd-maps-bento/HcdMapsBento.dc.html",
+    "templates/hcd-maps-bento/ds-base.js",
+    "templates/hcd-maps-bento/image-slot.js",
+    "templates/hcd-maps-bento/support.js",
+    "templates/landing-page/LandingPage.dc.html",
+    "templates/landing-page/ds-base.js",
+    "templates/landing-page/support.js",
+    "templates/mcp-bento/McpBento.dc.html",
+    "templates/mcp-bento/ds-base.js",
+    "templates/mcp-bento/support.js",
+    "templates/one-pager/OnePager.dc.html",
+    "templates/one-pager/ds-base.js",
+    "templates/one-pager/support.js",
+    "templates/outreach-email/OutreachEmail.dc.html",
+    "templates/outreach-email/ds-base.js",
+    "templates/outreach-email/support.js",
+    "templates/pitch-deck/PitchDeck.dc.html",
+    "templates/pitch-deck/ds-base.js",
+    "templates/pitch-deck/support.js",
+    "templates/portfolio/Portfolio.dc.html",
+    "templates/portfolio/ds-base.js",
+    "templates/portfolio/support.js",
+    "templates/rag-ux-bento/RagUxBento.dc.html",
+    "templates/rag-ux-bento/ds-base.js",
+    "templates/rag-ux-bento/support.js",
+    "templates/research-inventory-bento/ResearchInventoryBento.dc.html",
+    "templates/research-inventory-bento/ds-base.js",
+    "templates/research-inventory-bento/image-slot.js",
+    "templates/research-inventory-bento/support.js",
+    "templates/ui-ux-bento/UiUxBento.dc.html",
+    "templates/ui-ux-bento/ds-base.js",
+    "templates/ui-ux-bento/image-slot.js",
+    "templates/ui-ux-bento/support.js",
+    "templates/ux-audit-tools-bento/UxAuditToolsBento.dc.html",
+    "templates/ux-audit-tools-bento/ds-base.js",
+    "templates/ux-audit-tools-bento/support.js",
+    "templates/ux-books-carousel/UxBooksCarousel.dc.html",
+    "templates/ux-books-carousel/ds-base.js",
+    "templates/ux-books-carousel/support.js",
+    "templates/ux-reading-list-2026/UxReadingList2026.dc.html",
+    "templates/ux-reading-list-2026/ds-base.js",
+    "templates/ux-reading-list-2026/support.js",
+    "templates/ux-roles-2026-bento/UxRoles2026Bento.dc.html",
+    "templates/ux-roles-2026-bento/cory-tile.svg",
+    "templates/ux-roles-2026-bento/ds-base.js",
+    "templates/ux-roles-2026-bento/support.js",
+    "tokens.css",
+    "tokens/reveal.js",
+    "ui_kits/kit-shell.css",
+    "ui_kits/kit-shell.js",
+    "ui_kits/roi-calculator/README.md",
+    "ui_kits/roi-calculator/RoiCalculator.jsx",
+    "ui_kits/roi-calculator/index.html",
+    "ui_kits/roi-calculator/kit.js",
+    "ui_kits/website/App.jsx",
+    "ui_kits/website/ChatWidget.jsx",
+    "ui_kits/website/Features.jsx",
+    "ui_kits/website/Hero.jsx",
+    "ui_kits/website/KitIcon.jsx",
+    "ui_kits/website/Proof.jsx",
+    "ui_kits/website/README.md",
+    "ui_kits/website/SiteHeader.jsx",
+    "ui_kits/website/Workflows.jsx",
+    "ui_kits/website/index.html",
+    "ui_kits/website/kit.js",
+    "uploads/Logo_Cory-BpxDw6Ld.svg",
+    "uploads/_check/ping.html"
+  ],
+  "libraries": [
+    {
+      "name": "react",
+      "version": "18",
+      "global": "React"
+    },
+    {
+      "name": "react-dom",
+      "version": "18",
+      "global": "ReactDOM"
+    }
+  ],
+  "components": [
+    {
+      "name": "ChatBubble",
+      "group": "Content",
+      "summary": "One message in a chat: the AI assistant or Aleem at inline-start, the visitor at inline-end, and quiet system notes centred."
+    },
+    {
+      "name": "FeatureCard",
+      "group": "Content",
+      "summary": "Benefit/feature card: icon tile, heading, copy, and capability tags."
+    },
+    {
+      "name": "StatCard",
+      "group": "Content",
+      "summary": "Headline metric: Aleem leads with big numbers everywhere."
+    },
+    {
+      "name": "Testimonial",
+      "group": "Content",
+      "summary": "Customer testimonial card: leads with a gradient result metric, then quote and attribution."
+    },
+    {
+      "name": "TypingIndicator",
+      "group": "Content",
+      "summary": "Show between the visitor's message and the reply, so the pause reads as \"thinking\", never as \"broken\"."
+    },
+    {
+      "name": "CoryMark",
+      "group": "Core"
+    },
+    {
+      "name": "Avatar",
+      "group": "Core",
+      "summary": "Rounded-tile avatar for people, the AI assistant, Aleem himself, and the admissions case-study mascot."
+    },
+    {
+      "name": "Badge",
+      "group": "Core",
+      "summary": "Pill label for statuses and inline metrics, the chips that pepper Aleem's marketing and dashboards."
+    },
+    {
+      "name": "Button",
+      "group": "Core",
+      "summary": "Pill-shaped CTA button, use for any primary or secondary action; one primary (brand gradient) per view."
+    },
+    {
+      "name": "Chip",
+      "group": "Core",
+      "summary": "Selectable pill for filter bars, tag pickers, and toggles, the interactive counterpart to Badge."
+    },
+    {
+      "name": "IconButton",
+      "group": "Core",
+      "summary": "Round icon-only button, close, menu, play, mute, theme toggle. label is required (it becomes the aria-label)."
+    },
+    {
+      "name": "FeedbackIcon",
+      "group": "Feedback"
+    },
+    {
+      "name": "Alert",
+      "group": "Feedback",
+      "summary": "Inline feedback banner for page- or section-level messages that stay until resolved (a Toast is for brief confirmations after an action)."
+    },
+    {
+      "name": "Dialog",
+      "group": "Feedback",
+      "summary": "Modal for a focused task (short form, confirmation) that must finish before the page continues."
+    },
+    {
+      "name": "EmptyState",
+      "group": "Feedback",
+      "summary": "Use this wherever a list, panel or search result has nothing to show."
+    },
+    {
+      "name": "Toast",
+      "group": "Feedback",
+      "summary": "Brief confirmation after an action (\"Saved\", \"Call booked\", \"Message sent\"), gone in 6 seconds."
+    },
+    {
+      "name": "ToastRegion",
+      "group": "Feedback"
+    },
+    {
+      "name": "Tooltip",
+      "group": "Feedback",
+      "summary": "Names an icon-only control or clarifies a short label on hover and keyboard focus."
+    },
+    {
+      "name": "Checkbox",
+      "group": "Forms",
+      "summary": "Labelled checkbox for consent, multi-select lists, and bulk selection."
+    },
+    {
+      "name": "Input",
+      "group": "Forms",
+      "summary": "Labelled text field with soft rounding and a blue focus ring."
+    },
+    {
+      "name": "Select",
+      "group": "Forms",
+      "summary": "Dropdown for 5+ mutually exclusive options (institution type, role, time zone)."
+    },
+    {
+      "name": "Toggle",
+      "group": "Forms",
+      "summary": "Switch for settings that take effect immediately (notifications, autoplay, dark theme in a settings page)."
+    },
+    {
+      "name": "ICONS",
+      "group": "Icons"
+    },
+    {
+      "name": "ICON_ALIASES",
+      "group": "Icons"
+    },
+    {
+      "name": "ICON_NAMES",
+      "group": "Icons"
+    },
+    {
+      "name": "Icon",
+      "group": "Icons",
+      "summary": "Owned Aleem icon set: 24px grid, 1.75 stroke, round caps, 20% currentColor duotone tint."
+    },
+    {
+      "name": "ILLUSTRATION_SCENES",
+      "group": "Illustrations"
+    },
+    {
+      "name": "Illustration",
+      "group": "Illustrations",
+      "summary": "Aleem spot illustrations: the solid mascot tile is the subject, props around it are duotone shapes from the icon set, a soft cyan glow sits behind."
+    },
+    {
+      "name": "ProgressBar",
+      "group": "Status",
+      "summary": "Progress when it can be measured (uploads, imports, multi-step onboarding) or an indeterminate sweep for a page-level wait."
+    },
+    {
+      "name": "Skeleton",
+      "group": "Status",
+      "summary": "The bones of a loading layout."
+    },
+    {
+      "name": "Spinner",
+      "group": "Status",
+      "summary": "Activity indicator for one action or a small area where the layout is not known yet."
+    },
+    {
+      "name": "Card",
+      "group": "Surfaces",
+      "summary": "Blank surface tile."
+    },
+    {
+      "name": "DirectionToggle",
+      "group": "Surfaces",
+      "summary": "Reading-direction switch."
+    },
+    {
+      "name": "MediaFrame",
+      "group": "Surfaces",
+      "summary": "Image / video in a rounded, aspect-locked tile."
+    },
+    {
+      "name": "Tabs",
+      "group": "Surfaces",
+      "summary": "Tabs, segmented control, or filter bar, one component, animated indicator."
+    },
+    {
+      "name": "ThemeToggle",
+      "group": "Surfaces",
+      "summary": "Light and dark theme switch."
+    },
+    {
+      "name": "ConfidenceMeter",
+      "group": "AI patterns",
+      "summary": "How sure an AI result is: five pips plus words (\"High confidence\"), so it never relies on colour alone."
+    },
+    {
+      "name": "Citation"
+    },
+    {
+      "name": "SourceList"
+    },
+    {
+      "name": "AIResponse",
+      "group": "AI patterns",
+      "summary": "One AI answer, designed to earn trust: it says it is AI, shows how sure it is, cites its sources inline and lists them, and lets people copy, rate or regenerat…"
+    },
+    {
+      "name": "AgentSteps",
+      "group": "AI patterns",
+      "summary": "A live log of what an agent is doing, step by step, so people can follow the work and step in when it needs them."
+    },
+    {
+      "name": "ApprovalCard",
+      "group": "AI patterns",
+      "summary": "Human in the loop: an agent proposes an action and waits."
+    },
+    {
+      "name": "PromptInput",
+      "group": "AI patterns",
+      "summary": "The composer for talking to an AI: grows with the text, sends on Enter (Shift + Enter for a new line), offers starter suggestions, counts characters near the l…"
+    },
+    {
+      "name": "ProjectCard",
+      "group": "Content",
+      "summary": "A case study in the portfolio grid: cover, context line (client, role, year), title, one-line outcome, the proof metric and topic tags."
+    },
+    {
+      "name": "Timeline",
+      "group": "Content",
+      "summary": "Experience or milestones, newest first: period, title, organisation, place, a summary and optional highlights."
+    },
+    {
+      "name": "Accordion",
+      "group": "Surfaces",
+      "summary": "Questions and answers, process details or long specs that most readers skip."
+    },
+    {
+      "name": "RadioGroup",
+      "group": "Forms",
+      "summary": "One choice from a short list (2 to 5 options), all visible at once."
+    },
+    {
+      "name": "Textarea",
+      "group": "Forms",
+      "summary": "Multi-line text for messages, briefs and feedback."
+    },
+    {
+      "name": "SkeletonPreset",
+      "group": "Status",
+      "summary": "Ready-made skeletons with the same geometry as the real components, so the swap from loading to loaded never moves anything."
+    },
+    {
+      "name": "LoadingRegion",
+      "group": "Status",
+      "summary": "Wrap any region that loads."
+    },
+    {
+      "name": "ErrorState",
+      "group": "Feedback",
+      "summary": "A whole region that failed."
+    },
+    {
+      "name": "StateView",
+      "group": "Feedback",
+      "summary": "One region, every state, one prop."
+    },
+    {
+      "name": "SiteHeader",
+      "group": "Navigation",
+      "summary": "The top bar of a site: brand, primary links and one action."
+    },
+    {
+      "name": "Breadcrumb",
+      "group": "Navigation",
+      "summary": "Shows where a page sits, and lets people step back up."
+    },
+    {
+      "name": "Pagination",
+      "group": "Navigation",
+      "summary": "Moves through pages of a list or table."
+    },
+    {
+      "name": "Table",
+      "group": "Data",
+      "summary": "A data table with real table semantics."
+    },
+    {
+      "name": "SiteFooter",
+      "group": "Navigation",
+      "summary": "The bottom of a site: who it is, where everything is, and the legal line."
+    },
+    {
+      "name": "Menu",
+      "group": "Navigation",
+      "summary": "A dropdown of actions on one thing: the \"More\" on a card or table row."
+    },
+    {
+      "name": "Stepper",
+      "group": "Navigation",
+      "summary": "Shows progress through a short, ordered flow of 2 to 6 steps: an enquiry form, onboarding, a booking."
+    },
+    {
+      "name": "DateField",
+      "group": "Forms",
+      "summary": "A date, or a date and time."
+    },
+    {
+      "name": "SignalPattern",
+      "group": "Brand",
+      "summary": "The brand's signature graphic: rows of pills, like tokens in a design system or words in an AI answer."
+    },
+    {
+      "name": "Hero",
+      "group": "Brand",
+      "summary": "The opening of a page: one idea, one gradient phrase, one primary action."
+    },
+    {
+      "name": "PortfolioHome",
+      "group": "Page examples",
+      "summary": "A full portfolio home page built only from this system, to copy from and to prove the parts work together: SiteHeader, Hero (its art is a live AIResponse that…"
+    }
+  ],
+  "assetGroups": [
+    {
+      "name": "Logo"
+    },
+    {
+      "name": "Social"
+    },
+    {
+      "name": "Other"
+    },
+    {
+      "name": "notes"
+    },
+    {
+      "name": "previews"
+    }
+  ]
+}

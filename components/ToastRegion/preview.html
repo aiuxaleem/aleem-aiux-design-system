@@ -1,0 +1,34 @@
+<!-- @dsCard group="Feedback" height=96 subtitle="in a ToastRegion; press a button" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>ToastRegion — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+  function Demo() {
+    var s = React.useState([]), toasts = s[0], setToasts = s[1];
+    function push(t) { setToasts(function (l) { return l.slice(-2).concat([Object.assign({ id: Date.now() + Math.random() }, t)]); }); }
+    function drop(id) { setToasts(function (l) { return l.filter(function (t) { return t.id !== id; }); }); }
+    return h(F, null,
+      h('div', { className: 'row' },
+        h(D.Button, { variant: 'secondary', onClick: function () { push({ tone: 'info', title: 'Draft saved', body: 'Just now', undo: true }); } }, 'Show toast'),
+        h(D.Button, { variant: 'secondary', onClick: function () { push({ tone: 'success', title: 'Call requested', body: "I'll ring you in under 60 seconds." }); } }, 'Success toast'),
+        h(D.Button, { variant: 'secondary', onClick: function () { push({ tone: 'danger', title: '3 inquiries deleted' }); } }, 'Danger toast')),
+      h(D.ToastRegion, null, toasts.map(function (t) {
+        return h(D.Toast, { key: t.id, tone: t.tone, title: t.title, onDismiss: function () { drop(t.id); },
+          action: t.undo ? h(D.Button, { size: 'sm', variant: 'onInk', onClick: function () { drop(t.id); } }, 'Undo') : null }, t.body);
+      })));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

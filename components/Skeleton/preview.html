@@ -1,0 +1,45 @@
+<!-- @dsCard group="Status" height=368 subtitle="bones · text sizes · wave, pulse, still · on ink" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Skeleton — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 10px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+  .panel { padding: 20px; border-radius: var(--radius-xl); background: var(--surface-card); border: 1px solid var(--border-subtle); }
+  .ink { padding: 20px; border-radius: var(--radius-xl); background: var(--gradient-ink); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    var S = D.Skeleton;
+    return h('div', { className: 'stack', style: { gap: 20 } },
+      h('div', { className: 'grid' },
+        h('div', { className: 'panel' }, h('p', { className: 'label' }, 'Bones'),
+          h('div', { className: 'stack', style: { gap: 14 } },
+            h('div', { className: 'row' }, h(S, { variant: 'circle', width: 44 }), h(S, { lines: 2, width: '60%', lineWidths: ['70%', '45%'] })),
+            h(S, { size: 'heading', width: '80%' }),
+            h(S, { lines: 3 }),
+            h('div', { className: 'row' }, h(S, { variant: 'pill', width: 120, height: 44 }), h(S, { variant: 'pill', width: 72, height: 24 }), h(S, { variant: 'pill', width: 88, height: 24 })))),
+        h('div', { className: 'panel' }, h('p', { className: 'label' }, 'Motion'),
+          h('div', { className: 'stack', style: { gap: 16 } },
+            h('div', null, h('p', { className: 'note', style: { margin: '0 0 6px' } }, 'wave (default): one shine crosses the page in step'), h(S, { lines: 2 })),
+            h('div', null, h('p', { className: 'note', style: { margin: '0 0 6px' } }, 'pulse: for dense tables and small areas'), h(S, { lines: 2, animation: 'pulse' })),
+            h('div', null, h('p', { className: 'note', style: { margin: '0 0 6px' } }, 'none: still (also what reduced motion gets)'), h(S, { lines: 2, animation: 'none' })))),
+        h('div', { className: 'ink' }, h('p', { className: 'label', style: { color: 'var(--on-ink-muted)' } }, 'On ink'),
+          h('div', { className: 'stack', style: { gap: 14 } },
+            h(S, { size: 'metric', width: '40%', onInk: true }),
+            h(S, { lines: 3, onInk: true }),
+            h(S, { variant: 'pill', width: 140, height: 44, onInk: true })))));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

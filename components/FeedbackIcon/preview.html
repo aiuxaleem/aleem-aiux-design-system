@@ -1,0 +1,25 @@
+<!-- @dsCard group="Feedback" height=84 subtitle="the shared tone glyphs of Alert, Toast and Dialog" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>FeedbackIcon — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+  function Demo() {
+    return h('div', { className: 'row', style: { gap: 20 } }, ['info', 'success', 'warning', 'danger'].map(function (t) {
+      return h('span', { key: t, className: 'row', style: { gap: 8, color: 'var(--text-' + t + ')', fontSize: 'var(--text-body-sm)', fontWeight: 600 } }, h(D.FeedbackIcon, { tone: t }), t);
+    }));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

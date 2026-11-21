@@ -1,0 +1,28 @@
+<!-- @dsCard group="Status" height=200 subtitle="determinate · indeterminate · complete" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>ProgressBar — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    return h('div', { className: 'stack', style: { maxWidth: 420, gap: 18 } },
+      h(D.ProgressBar, { label: 'Uploading case study images', value: 64, showValue: true }),
+      h(D.ProgressBar, { label: 'Agent is drafting the brief' }),
+      h(D.ProgressBar, { label: 'Step 4 of 4', value: 100, tone: 'success' }));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

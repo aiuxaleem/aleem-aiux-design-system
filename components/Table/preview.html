@@ -1,0 +1,44 @@
+<!-- @dsCard group="Data" height=624 subtitle="sortable · numeric columns · loading · empty · scrolls sideways on phones" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Table — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 10px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+  .panel { padding: 20px; border-radius: var(--radius-xl); background: var(--surface-card); border: 1px solid var(--border-subtle); }
+  .ink { padding: 20px; border-radius: var(--radius-xl); background: var(--gradient-ink); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  var ROWS = [
+    { name: 'Colaberry Design System', type: 'Design system', year: 2026, n: 20, status: 'Shipped' },
+    { name: 'Design system audit skill', type: 'Claude skill', year: 2026, n: 97, status: 'Shipped' },
+    { name: 'Freight platform rebrand', type: 'Brand', year: 2025, n: 1, status: 'Shipped' },
+    { name: 'Learner portal', type: 'Product', year: 2025, n: 4, status: 'In production' }];
+  function Demo() {
+    var s = React.useState({ key: 'year', dir: 'desc' }), sort = s[0], setSort = s[1];
+    var rows = ROWS.slice().sort(function (a, b) { var x = a[sort.key], y = b[sort.key]; return (x > y ? 1 : x < y ? -1 : 0) * (sort.dir === 'asc' ? 1 : -1); });
+    var cols = [
+      { key: 'name', label: 'Project', sortable: true },
+      { key: 'type', label: 'Type' },
+      { key: 'year', label: 'Year', numeric: true, sortable: true },
+      { key: 'n', label: 'Key number', numeric: true, sortable: true },
+      { key: 'status', label: 'Status', render: function (r) { return h(D.Badge, { tone: r.status === 'Shipped' ? 'success' : 'info', size: 'sm' }, r.status); } }];
+    return h('div', { className: 'stack', style: { gap: 20 } },
+      h(D.Table, { caption: 'Projects', columns: cols, rows: rows, sort: sort, onSort: setSort, rowKey: function (r) { return r.name; } }),
+      h('div', { className: 'grid', style: { gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))' } },
+        h(D.Table, { caption: 'Loading', columns: cols.slice(0, 3), rows: [], loading: true, skeletonRows: 3, dense: true }),
+        h(D.Table, { caption: 'Empty', columns: cols.slice(0, 3), rows: [], empty: 'No projects match this filter.', dense: true })));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

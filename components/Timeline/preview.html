@@ -1,0 +1,36 @@
+<!-- @dsCard group="Content" height=716 subtitle="current role · past roles · highlights" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Timeline — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    return h(D.Timeline, { items: [
+      { period: 'Jan 2025 to now', title: 'Lead AI Product Designer', org: 'Colaberry', place: 'Hyderabad', current: true,
+        summary: 'Designing AI products and the design systems behind them.',
+        highlights: ['Built and maintain the Colaberry Design System for developers, coding agents and marketing', 'Put five brands on one component library with WCAG 2.1 AA colour pairs', 'Turned the freight platform system into an audit skill across 97 UAT screens'] },
+      { period: '2022 to 2024', title: 'Senior Product Designer', org: 'NTT DATA', place: 'Hyderabad',
+        summary: 'Three roles: Product Designer, Associate Business Analyst, then Senior Product Designer on the Latitude Financial Services account.',
+        highlights: ['Modernised legacy enterprise interfaces with accessibility as a goal', 'Ran research, usability tests, workshops and live metric dashboards'] },
+      { period: '2019 to 2022', title: 'Lead Designer', org: 'Teqsar', place: 'Hyderabad',
+        summary: 'Led design of a fintech platform and its reusable design frameworks, tuned with A/B tests and analytics.' },
+      { period: '2015 to 2019', title: 'UI Designer', org: 'Click2Clinic Healthcare', place: 'Hyderabad',
+        summary: 'Responsive healthcare web applications with agile teams.' },
+      { period: '2014 to 2015', title: 'Web Designer', org: 'Ray SEO' }] });
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

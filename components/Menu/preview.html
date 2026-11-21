@@ -1,0 +1,34 @@
+<!-- @dsCard group="Navigation" height=324 subtitle="actions on one thing · icons · danger · disabled · keyboard" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Menu — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 10px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+  .panel { padding: 20px; border-radius: var(--radius-xl); background: var(--surface-card); border: 1px solid var(--border-subtle); }
+  .ink { padding: 20px; border-radius: var(--radius-xl); background: var(--gradient-ink); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    var s = React.useState('Nothing chosen yet'), last = s[0], setLast = s[1];
+    var items = [{ label: 'Edit', icon: 'pencil' }, { label: 'Duplicate', icon: 'copy', hint: 'Ctrl D' }, { label: 'Download', icon: 'download' }, { label: 'Share link', icon: 'link', disabled: true }, { separator: true }, { label: 'Delete project', icon: 'trash', danger: true }];
+    var ref = React.useRef(null);
+    React.useEffect(function () { var b = ref.current && ref.current.querySelector('button'); b && b.click(); }, []);
+    return h('div', { className: 'row', style: { alignItems: 'flex-start', gap: 24, minHeight: 280 } },
+      h('span', { ref: ref }, h(D.Menu, { label: 'Project actions', items: items, onSelect: function (it) { setLast('Chose: ' + it.label); } })),
+      h('span', { style: { marginInlineStart: 'auto' } }, h(D.Menu, { label: 'Sort', align: 'end', items: [{ label: 'Newest first' }, { label: 'Oldest first' }, { label: 'Name' }], onSelect: function (it) { setLast('Sort: ' + it.label); } })),
+      h('span', { className: 'note', role: 'status', style: { margin: '14px 0 0', order: -1, flexBasis: '100%' } }, last));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

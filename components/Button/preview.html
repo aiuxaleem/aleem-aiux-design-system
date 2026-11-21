@@ -1,0 +1,39 @@
+<!-- @dsCard group="Core" height=208 subtitle="primary · ink · secondary · ghost · danger · sizes · disabled · loading" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Button — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    return h('div', { className: 'stack' },
+      h('div', { className: 'row' },
+        h(D.Button, { variant: 'primary' }, "Let's talk"),
+        h(D.Button, { variant: 'ink' }, 'View my work'),
+        h(D.Button, { variant: 'secondary' }, 'Download CV'),
+        h(D.Button, { variant: 'ghost', iconEnd: h('span', { className: 'cory-arrow' }, '\u2192') }, 'Read the case study')),
+      h('div', { className: 'row' },
+        h(D.Button, { variant: 'primary', size: 'sm' }, 'Small'),
+        h(D.Button, { variant: 'primary', size: 'lg' }, 'Large'),
+        h(D.Button, { variant: 'primary', disabled: true }, 'Disabled'),
+        h(D.Button, { variant: 'ink', loading: true }, 'Sending')),
+      h('div', { className: 'row' },
+        h(D.Button, { variant: 'danger' }, 'Delete project'),
+        h(D.Button, { variant: 'dangerGhost' }, 'Remove'),
+        h(D.Button, { variant: 'danger', loading: true, loadingLabel: 'Deleting' }, 'Deleting')));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

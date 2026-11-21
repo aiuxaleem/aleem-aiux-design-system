@@ -1,0 +1,32 @@
+<!-- @dsCard group="Content" height=568 subtitle="assistant · user · system · delivery states" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>ChatBubble — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    return h('div', { className: 'stack', style: { maxWidth: 440, gap: 10 } },
+      h(D.ChatBubble, { from: 'system' }, 'Today'),
+      h(D.ChatBubble, { from: 'assistant', time: '9:41 AM' }, "Hi, I'm the assistant on Aleem's portfolio. Ask me about his work, process or availability."),
+      h(D.ChatBubble, { from: 'user', status: 'sent', time: '9:42 AM' }, 'Has he built a design system that agents can use?'),
+      h(D.ChatBubble, { from: 'assistant' }, 'Yes. He built the Colaberry Design System: 20 typed React components, 15 templates and 231 tokens that developers, coding agents and marketers all build from.'),
+      h(D.ChatBubble, { from: 'user', status: 'failed', onRetry: function () {} }, 'Can I book a call this week?'),
+      h(D.ChatBubble, { from: 'user', status: 'sending' }, 'Thursday works best'),
+      h(D.ChatBubble, { from: 'system' }, 'Aleem joined the chat'));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

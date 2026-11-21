@@ -1,0 +1,34 @@
+<!-- @dsCard group="Navigation" height=248 subtitle="brand · links · current page · action · folds to a menu on phones" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>SiteHeader — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 10px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+  .panel { padding: 20px; border-radius: var(--radius-xl); background: var(--surface-card); border: 1px solid var(--border-subtle); }
+  .ink { padding: 20px; border-radius: var(--radius-xl); background: var(--gradient-ink); }
+  .frame { border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); overflow: hidden; background: var(--surface-page); }
+  .phone { max-width: 360px; container-type: inline-size; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  var LINKS = [{ label: 'Work', href: '#work', current: true }, { label: 'Case studies', href: '#cases' }, { label: 'Design systems', href: '#ds' }, { label: 'About', href: '#about' }];
+  function Demo() {
+    return h('div', { className: 'stack', style: { gap: 20 } },
+      h('div', null, h('p', { className: 'label' }, 'Desktop'),
+        h('div', { className: 'frame' }, h(D.SiteHeader, { sticky: false, links: LINKS, tools: h(D.ThemeToggle, null), action: h(D.Button, { size: 'sm', variant: 'primary', href: '#contact' }, "Let's talk") }),
+          h('div', { id: 'main', style: { padding: 20, color: 'var(--text-muted)', fontSize: 'var(--text-ui-sm)' } }, 'Page content. Press Tab from the top of the page to reveal "Skip to content".'))),
+      h('p', { className: 'note' }, 'Below 760px the links and the action fold into a Menu button. Resize the preview to see it.'));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

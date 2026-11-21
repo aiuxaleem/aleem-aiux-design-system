@@ -1,0 +1,31 @@
+<!-- @dsCard group="AI patterns" height=300 subtitle="suggestions · typing · answering (Stop) · near the limit" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>PromptInput — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+  .grid.wide { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+  @media (max-width: 640px) { .grid.wide { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    return h('div', { className: 'grid wide' },
+      h(D.PromptInput, { id: 'p1', suggestions: ['What did you ship last year?', 'How do you design for trust?', 'Show me a design system case'] }),
+      h('div', { className: 'stack' },
+        h(D.PromptInput, { id: 'p2', defaultValue: 'Walk me through the freight design system', busy: true }),
+        h(D.PromptInput, { id: 'p3', maxLength: 80, defaultValue: 'I am hiring a lead designer for an AI agent product. What would your first 90 days look like?' })));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

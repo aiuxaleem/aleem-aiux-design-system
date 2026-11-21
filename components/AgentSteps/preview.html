@@ -1,0 +1,34 @@
+<!-- @dsCard group="AI patterns" height=380 subtitle="done · running · needs you · failed · up next" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>AgentSteps — preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stack { display: grid; gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start; }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+  .note { margin: 12px 0 0; font-size: var(--text-micro); color: var(--text-subtle); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement, F = React.Fragment;
+
+  function Demo() {
+    return h('div', { className: 'grid' },
+      h(D.Card, null, h(D.AgentSteps, { title: 'Research agent', summary: 'Preparing a competitive brief on AI onboarding.', steps: [
+        { title: 'Read 12 competitor onboarding flows', status: 'done', time: '0:42' },
+        { title: 'Grouped patterns by trust signal', status: 'done', time: '1:10', detail: 'Found 4 ways products explain what the AI will do.' },
+        { title: 'Drafting the brief', status: 'running', detail: 'Writing the comparison table.' },
+        { title: 'Share with the team', status: 'pending' }] })),
+      h(D.Card, null, h(D.AgentSteps, { title: 'Outreach agent', steps: [
+        { title: 'Wrote 3 follow-up emails', status: 'done' },
+        { title: 'Send the emails', status: 'waiting', detail: 'Sending goes outside your company, so I need your OK.', action: h(D.Button, { size: 'sm', variant: 'ink' }, 'Review and send') },
+        { title: 'Update the CRM', status: 'error', detail: 'The CRM did not answer. I will try again in 5 minutes.' }] })));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>
