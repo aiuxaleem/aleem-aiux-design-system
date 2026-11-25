@@ -61,7 +61,7 @@ function SiteFooter() {
     <footer style={{ background: 'var(--surface-ink)', color: 'var(--on-ink-body)' }}>
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', padding: '56px var(--gutter) 32px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: 40 }}>
         <div>
-          <img src="../../assets/logo-agentcory-darkmode.svg" alt="Aleem" style={{ height: 26, marginBottom: 16 }} />
+          <img src="../../assets/Logo/aleem-logo-dark.svg" alt="Aleem AIUX" style={{ height: 26, marginBottom: 16 }} />
           <p style={{ fontSize: 14, lineHeight: 1.6, margin: '0 0 16px', maxWidth: 260 }}>
             AI-powered admissions assistant that boosts conversions with lightning-fast, multi-channel outreach.
           </p>

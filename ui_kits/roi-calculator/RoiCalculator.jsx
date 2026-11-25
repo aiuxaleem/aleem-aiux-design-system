@@ -82,7 +82,7 @@ function RoiCalculator() {
       {/* slim product header */}
       <header style={{ background: 'var(--surface-card)', borderBottom: '1px solid var(--border-subtle)' }}>
         <div style={{ maxWidth: 1120, margin: '0 auto', padding: '16px var(--gutter)', display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
-          <img src="../../assets/logo-agentcory.svg" alt="Aleem" style={{ height: 24 }} />
+          <img src="../../assets/Logo/aleem-logo.svg" alt="Aleem AIUX" style={{ height: 24 }} />
           <span style={{ width: 1, height: 22, background: 'var(--border-default)' }} />
           <span style={{ fontWeight: 600, fontSize: 15, color: 'var(--text-strong)' }}>ROI Calculator</span>
           <Badge tone="success" dot style={{ marginInlineStart: 'auto' }}>Live estimate</Badge>

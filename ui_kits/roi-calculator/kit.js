@@ -216,7 +216,7 @@ function RoiCalculator() {
       flexWrap: 'wrap'
     }
   }, React.createElement("img", {
-    src: "../../assets/logo-agentcory.svg",
+    src: "../../assets/Logo/aleem-logo.svg",
     alt: "Aleem",
     style: {
       height: 24

@@ -54,7 +54,7 @@ function SiteHeader({
       minWidth: 0
     }
   }, React.createElement("img", {
-    src: "../../assets/logo-agentcory.svg",
+    src: "../../assets/Logo/aleem-logo.svg",
     alt: "Aleem",
     style: {
       height: 26,
@@ -704,7 +704,7 @@ function SiteFooter() {
       gap: 40
     }
   }, React.createElement("div", null, React.createElement("img", {
-    src: "../../assets/logo-agentcory-darkmode.svg",
+    src: "../../assets/Logo/aleem-logo-dark.svg",
     alt: "Aleem",
     style: {
       height: 26,

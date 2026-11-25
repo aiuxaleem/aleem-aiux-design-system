@@ -12,7 +12,7 @@ function SiteHeader({ onTry, onDemo }) {
         maxWidth: 'var(--container-max)', margin: '0 auto', height: 'var(--header-height)',
         padding: '0 var(--gutter)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 'var(--space-4)', minWidth: 0,
       }}>
-        <img src="../../assets/logo-agentcory.svg" alt="Aleem" style={{ height: 26, width: 'auto', maxWidth: '100%', objectFit: 'contain', objectPosition: 'left center', flex: '0 1 auto', minWidth: 0 }} />
+        <img src="../../assets/Logo/aleem-logo.svg" alt="Aleem AIUX" style={{ height: 26, width: 'auto', maxWidth: '100%', objectFit: 'contain', objectPosition: 'left center', flex: '0 1 auto', minWidth: 0 }} />
         <nav className="cory-hide-mobile" style={{ display: 'flex', gap: 'var(--space-7)', alignItems: 'center' }}>
           {links.map((l, i) => (
             <a key={l} href="#" onClick={(e) => e.preventDefault()} style={{
