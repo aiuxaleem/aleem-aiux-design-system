@@ -69,6 +69,8 @@
   --ease-in: cubic-bezier(0.55, 0, 1, 0.45); /* @kind other */ /* exit */
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */ /* move between places */
   --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1); /* @kind other */ /* light overshoot: chips, toggles */
+  --ease-spring-soft: linear(0, 0.082, 0.255, 0.447, 0.62, 0.758, 0.86, 0.93, 0.973, 0.998, 1.01, 1.015, 1.015, 1.013, 1.01, 1.007, 1.005, 1.003, 1); /* @kind other */ /* lifts and leans: 0.35 s, a 1.5% overshoot */
+  --ease-spring-pop: linear(0, 0.122, 0.372, 0.629, 0.834, 0.969, 1.041, 1.066, 1.064, 1.049, 1.031, 1.016, 1.005, 0.999, 0.996, 0.995, 0.996, 0.997, 1); /* @kind other */ /* small turns: 0.28 s, a 6.6% overshoot */
   --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */ /* long reveals */
 
   /* --- Duration --- */
@@ -91,6 +93,8 @@
   /* --- Distances --- */
   --lift-hover: -3px; /* @kind other */
   --lift-hover-lg: -6px; /* @kind other */
+  --lift-hover-sm: -1px; /* @kind other */ /* buttons and chips: a 1 px rise */
+  --grow-hover: 1.06; /* @kind other */ /* a play disc or media control under the pointer */
   --press-scale: 0.97; /* @kind other */
   --reveal-distance: 24px; /* @kind other */
   --reveal-distance-lg: 48px; /* @kind other */
@@ -152,9 +156,19 @@ html.cory-js [data-reveal].is-visible { opacity: 1; transform: none; filter: non
   @keyframes cory-parallax { from { transform: translateY(calc(var(--parallax-depth) * 100px)); } to { transform: translateY(calc(var(--parallax-depth) * -100px)); } }
 }
 
+/* --- Glass and field: mixed from the theme's own surface and link colours, so the dark theme follows
+   without values of its own. Declared on [data-theme] too: a custom property built from others resolves where
+   it is declared, so a section drawn in the other theme gets its own glass. --- */
+:root, [data-theme] {
+  --surface-glass: color-mix(in srgb, var(--surface-card) 66%, transparent); /* @kind color */ /* frosted panels over imagery or the field */
+  --surface-glass-strong: color-mix(in srgb, var(--surface-card) 86%, transparent); /* @kind color */ /* glass that carries body text */
+  --field-dot: color-mix(in srgb, var(--text-link) 34%, transparent); /* @kind color */ /* the dot grid behind hero sections */
+  --field-line: color-mix(in srgb, var(--text-link) 12%, transparent); /* @kind color */ /* the line grid behind hero sections */
+}
+
 /* --- Reduced motion: keep state changes, drop movement --- */
 @media (prefers-reduced-motion: reduce) {
-  :root { --duration-enter: 1ms; /* @kind other */ --duration-cinematic: 1ms; /* @kind other */ --duration-epic: 1ms; /* @kind other */ --reveal-distance: 0px; /* @kind other */ --reveal-distance-lg: 0px; /* @kind other */ --lift-hover: 0px; /* @kind other */ --lift-hover-lg: 0px; /* @kind other */ --press-scale: 1; /* @kind other */ --parallax-depth: 0; /* @kind other */ }
+  :root { --duration-enter: 1ms; /* @kind other */ --duration-cinematic: 1ms; /* @kind other */ --duration-epic: 1ms; /* @kind other */ --reveal-distance: 0px; /* @kind other */ --reveal-distance-lg: 0px; /* @kind other */ --lift-hover: 0px; /* @kind other */ --lift-hover-lg: 0px; /* @kind other */ --press-scale: 1; /* @kind other */ --parallax-depth: 0; /* @kind other */ --lift-hover-sm: 0px; /* @kind other */ --grow-hover: 1; /* @kind other */ }
   .cory-reveal { opacity: 1; transform: none; transition: none; }
   .cory-reveal-auto, .cory-marquee, .cory-glow-drift, .cory-reveal-scroll, .cory-parallax, .cory-float, .cory-ring::after, .cory-sweep, .cory-draw { animation: none !important; }
   html.cory-js [data-reveal]:not(.is-visible) { opacity: 1; transform: none; filter: none; clip-path: none; }

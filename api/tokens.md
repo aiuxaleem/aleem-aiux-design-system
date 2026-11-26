@@ -155,7 +155,7 @@ color: var(--navy-950, #040c16);
 color: #040c16;
 ```
 
-### Tokens (58)
+### Tokens (68)
 
 | token | light | dark | usage |
 | --- | --- | --- | --- |
@@ -168,6 +168,16 @@ color: #040c16;
 | `--action-ink-active` | #06121f | #bcc7d5 | Ink button pressed. |
 | `--action-secondary-hover` | #f4f5fa | #12304f | Secondary button hover fill. |
 | `--action-ghost-hover` | #e6f1ff | rgba(90, 167, 254, 0.14) | Ghost button hover fill. |
+| `--action-solid` | #1568d4 | #1568d4 | Solid call-to-action fill: the pill button with the travelling arrow. White text passes AA in both themes. |
+| `--action-solid-hover` | #0f55b2 | #1871e0 | Solid call-to-action hover: darker on light, lighter on navy (white 4.69:1). |
+| `--action-solid-rim` | transparent | #258afd | Solid call-to-action border: none on light, a blue rim that lifts it off navy in dark. |
+| `--action-solid-rim-hover` | transparent | #5aa7fe | Solid call-to-action border on hover. |
+| `--logo-tile` | #0b1f36 | #12304f | Inline logo: the AIUX tile fill on the page. |
+| `--logo-letter` | #ffffff | #ffffff | Inline logo: the AIUX letters inside the tile (the I keeps its gradient). |
+| `--logo-word` | #0b1f36 | #ffffff | Inline logo: the Aleem name beside the tile. |
+| `--logo-tile-on-ink` | #ffffff | #ffffff | Inline logo on ink surfaces (`data-on-ink`): white tile. |
+| `--logo-letter-on-ink` | #0b1f36 | #0b1f36 | Inline logo on ink surfaces: navy letters in the white tile. |
+| `--logo-word-on-ink` | #ffffff | #ffffff | Inline logo on ink surfaces: white name. |
 | `--focus-ring` | rgba(37, 138, 253, 0.35) | rgba(90, 167, 254, 0.45) | Soft halo around the focus outline (inside `--shadow-focus`). |
 
 | ramp | step and value (light, dark) |
@@ -275,7 +285,7 @@ Soft, generous corners are the brand signature.
 /* a page that links or inlines tokens.css: prefer var(--radius-xs), so that a change to tokens.css reaches the page */
 ```
 
-### Tokens (8)
+### Tokens (9)
 
 | token | value | usage |
 | --- | --- | --- |
@@ -287,6 +297,7 @@ Soft, generous corners are the brand signature.
 | `--radius-2xl` | 32px | Ink spotlight panels. |
 | `--radius-pill` | 999px | Buttons, chips, badges, eyebrow pills: fully pill-shaped. |
 | `--radius-tile` | 22.7% | The mascot tile corner, ~22.7% of its size; Avatar tiles. |
+| `--radius-button` | 999px | Every button and call to action. Same as radius-pill today; change this one to reshape all buttons. |
 
 ## Shadow
 
@@ -299,7 +310,7 @@ Soft, cool, navy-tinted in light; black plus glow in dark.
 /* a page that links or inlines tokens.css: prefer var(--shadow-xs), so that a change to tokens.css, or a change of theme, reaches the page */
 ```
 
-### Tokens (7)
+### Tokens (10)
 
 | token | value | usage |
 | --- | --- | --- |
@@ -310,6 +321,9 @@ Soft, cool, navy-tinted in light; black plus glow in dark.
 | `--shadow-xl` | 0 32px 72px rgba(11, 31, 54, 0.14) · dark: 0 32px 72px rgba(0, 0, 0, 0.50) | Dialogs and the highest overlays. |
 | `--shadow-brand` | 0 12px 32px rgba(37, 138, 253, 0.28) · dark: 0 12px 32px rgba(37, 138, 253, 0.40) | Coloured blue glow under primary buttons. |
 | `--shadow-glow` | 0 0 0 1px rgba(11,31,54,0.04), 0 0 40px rgba(41, 190, 221, 0.14) · dark: 0 0 0 1px rgba(255,255,255,0.08), 0 0 48px rgba(41, 190, 221, 0.18) | Soft cyan glow ring for spotlight elements; dark theme adds it to elevation. |
+| `--shadow-button` | 0 1px 2px rgba(11, 31, 54, 0.10), 0 4px 12px rgba(21, 104, 212, 0.18) · dark: 0 1px 2px rgba(0, 0, 0, 0.40), 0 4px 12px rgba(37, 138, 253, 0.14) | The solid call to action at rest. |
+| `--shadow-button-hover` | 0 2px 4px rgba(11, 31, 54, 0.12), 0 8px 20px rgba(21, 104, 212, 0.24) · dark: 0 2px 4px rgba(0, 0, 0, 0.45), 0 8px 20px rgba(37, 138, 253, 0.24) | The solid call to action on hover. |
+| `--highlight-inset` | inset 0 1px 0 rgba(255, 255, 255, 0.18) · dark: inset 0 1px 0 rgba(255, 255, 255, 0.18) | The one-pixel light along a solid button's top edge. Combine with shadow-button: `box-shadow: var(--shadow-button), var(--highlight-inset)`. |
 
 ## Font size
 
@@ -322,7 +336,7 @@ The type scale as custom properties (`--text-*`). Do not introduce off-scale siz
 /* a page that links or inlines tokens.css: prefer var(--text-display-2xl), so that a change to tokens.css reaches the page */
 ```
 
-### Tokens (29)
+### Tokens (31)
 
 | token | value | usage |
 | --- | --- | --- |
@@ -352,6 +366,8 @@ The type scale as custom properties (`--text-*`). Do not introduce off-scale siz
 | `--text-fluid-title` | clamp(32px, 4vw, 48px) | Fluid title for marketing pages. |
 | `--text-fluid-h2` | clamp(24px, 2.8vw, 34px) | Fluid section heading. |
 | `--text-fluid-lead` | clamp(16px, 1.5vw, 19px) | Fluid lead paragraph. |
+| `--text-fluid-hero` | clamp(44px, 7.4vw, 128px) | Fluid hero headline for full-bleed portfolio and landing openers. |
+| `--text-fluid-statement` | clamp(28px, 4.2vw, 60px) | Fluid statement line: one big sentence between sections. |
 | `--text-mono-sm` | 12px | Small mono readouts and code labels. |
 | `--text-mono` | 13px | Mono readouts and data. |
 | `--text-mono-lg` | 15px | Large mono readouts. |

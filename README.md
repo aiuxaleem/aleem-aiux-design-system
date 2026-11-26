@@ -23,7 +23,7 @@ The design system of **Mohammad Abdul Aleem**, Lead AI Product Designer, publish
 |---|---|
 | **58 React components** | One script, `components/bundle.js`, typed in `components/index.d.ts` |
 | **7 AI trust patterns** | AIResponse, Citation, SourceList, ConfidenceMeter, AgentSteps, ApprovalCard, PromptInput |
-| **Tokens** | `tokens.css` and `tokens.json`: colour, type, spacing, radius, shadow, motion, targets |
+| **Tokens** | `tokens.css` and `tokens.json`: colour, type, spacing, radius, shadow, motion, targets, inline-logo colours |
 | **Two themes, two directions** | Light and dark; English left to right and Arabic right to left |
 | **Accessibility** | WCAG 2.1 AA colour pairs, 24 px minimum targets (44 px on touch), visible focus everywhere |
 | **25 templates, 14 posts** | Landing page, pitch deck, one-pager, email and LinkedIn layouts, built only from the system |
@@ -209,6 +209,8 @@ See them running in the [live showcase](https://aiuxaleem.github.io/aleem-aiux-d
 - **Space and shape.** A 4 px spacing scale, soft radii, navy-tinted shadows, pill buttons.
 - **Motion.** Short and purposeful: 140 ms press, 220 ms hover, 380 ms panels. Every animation respects `prefers-reduced-motion`.
 - **Direction.** Layout is logical everywhere (`margin-inline-start`, never `margin-left`), so Arabic mirrors for free. Numbers, code and URLs stay left to right.
+- **Solid call to action.** `--action-solid`, `--radius-button`, `--shadow-button` and `--highlight-inset` make the pill button with the travelling arrow; white text passes AA in both themes.
+- **Glass, field and fluid display.** `--surface-glass`, `--field-dot`, `--field-line`, `--text-fluid-hero` and `--text-fluid-statement`, proven first on the portfolio. Details in [`GUIDE.md`](GUIDE.md#tokens-from-the-portfolio-v10).
 - **Logo.** The AIUX tile and the Aleem name, as outlined SVGs. Rules and every file: [`assets/Logo/README.md`](assets/Logo/README.md).
 
 ## Rules every surface follows

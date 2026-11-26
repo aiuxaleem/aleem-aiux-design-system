@@ -409,6 +409,16 @@ Folder map (root holds only the entry points):
 - Brand colors, the mascot, and copy voice are taken **directly** from the live
   site and brand asset, and are accurate.
 
+## Tokens from the portfolio (v10)
+
+These came up from the live portfolio, where they were proven first. Use them instead of hand-mixing values.
+
+- **Solid call to action.** `--action-solid` (blue-700, white text 5.3:1), `--action-solid-hover` (7.1:1 on light, 4.69:1 on navy), and `--action-solid-rim` / `--action-solid-rim-hover` (no rim on light, a blue rim in dark so the button lifts off navy). Shape it with `--radius-button`, and shade it with `box-shadow: var(--shadow-button), var(--highlight-inset)` at rest and `var(--shadow-button-hover), var(--highlight-inset)` on hover. Always pair the two shadows; `--highlight-inset` is the one-pixel light along the top edge.
+- **Inline logo.** When the logo is pasted as inline SVG rather than an `<img>`, fill its three paths with `--logo-tile`, `--logo-letter` and `--logo-word`. On ink surfaces use the `-on-ink` set. The tokens switch with the theme, so one inline logo works in light and dark. The I keeps its gradient.
+- **Glass and field** (in `components/bundle.css`). `--surface-glass` for frosted panels over imagery, `--surface-glass-strong` when the glass carries body text, `--field-dot` and `--field-line` for the dot and line grid behind a hero. All are mixed from the theme's own colours, so dark follows automatically.
+- **Fluid display.** `--text-fluid-hero` (44 to 128 px) for a full-bleed opener, `--text-fluid-statement` (28 to 60 px) for one big sentence between sections. One of each per page at most.
+- **Springs and lifts** (in `components/bundle.css`). `--ease-spring-soft` for lifts and leans (0.35 s), `--ease-spring-pop` for small turns (0.28 s), `--lift-hover-sm` (1 px) for buttons and chips, `--grow-hover` (1.06) for a play disc. All fall back to no movement under `prefers-reduced-motion`.
+
 ## Logo
 
 The logo belongs to Mohammad Abdul Aleem, Lead AI Product Designer, and to this system. A navy tile holds **AIUX** on a two-by-two grid: AI on top, UX below. AIUX is the field, AI products people can trust. The **I** is the only letter in the gradient. It is the AI, and it is the "I" in "I design the gap". Beside the tile, **Aleem** says who does the work. The tile and the name are drawn in one set of letters as outlines, so they are never retyped in a font. In running text, write "Aleem" or "Aleem | AIUX".
