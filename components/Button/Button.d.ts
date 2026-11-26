@@ -6,7 +6,7 @@ import * as React from 'react';
  */
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** Visual style. @default "primary" */
-  variant?: 'primary' | 'ink' | 'secondary' | 'ghost' | 'onInk' | 'onInkSolid';
+  variant?: 'primary' | 'ink' | 'secondary' | 'ghost' | 'danger' | 'dangerGhost' | 'onInk' | 'onInkSolid';
   /** Control size. @default "md" */
   size?: 'sm' | 'md' | 'lg';
   /** Node before the label (inline-start: left in LTR, right in RTL). Preferred over iconLeft. */

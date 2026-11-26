@@ -366,7 +366,8 @@
     },
     {
       "name": "CoryMark",
-      "group": "Core"
+      "group": "Core",
+      "summary": "The Cory mascot mark, kept for the admissions assistant case study."
     },
     {
       "name": "Avatar",
@@ -395,7 +396,8 @@
     },
     {
       "name": "FeedbackIcon",
-      "group": "Feedback"
+      "group": "Feedback",
+      "summary": "The shared tone glyph used by Alert, Toast and Dialog."
     },
     {
       "name": "Alert",
@@ -419,7 +421,8 @@
     },
     {
       "name": "ToastRegion",
-      "group": "Feedback"
+      "group": "Feedback",
+      "summary": "Hosts toasts in one live region so screen readers announce them."
     },
     {
       "name": "Tooltip",
@@ -518,10 +521,14 @@
       "summary": "How sure an AI result is: five pips plus words (\"High confidence\"), so it never relies on colour alone."
     },
     {
-      "name": "Citation"
+      "name": "Citation",
+      "group": "AI patterns",
+      "summary": "Inline numbered marker that ties a claim to its source; links to it when there is a URL."
     },
     {
-      "name": "SourceList"
+      "name": "SourceList",
+      "group": "AI patterns",
+      "summary": "Numbered source tiles, used by AIResponse and available for custom layouts."
     },
     {
       "name": "AIResponse",

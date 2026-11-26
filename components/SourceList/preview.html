@@ -1,0 +1,33 @@
+<!-- @dsCard group="AI patterns" height=260 subtitle="numbered source tiles" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../bundle.js"></script>
+<title>SourceList, preview</title>
+<style>
+  body { margin: 0; padding: 20px; background: var(--surface-page); font-family: var(--font-sans); color: var(--text-body); }
+  .label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 8px; }
+  .stack { display: grid; gap: 20px; max-width: 640px; }
+  p { margin: 0; line-height: 1.6; }
+</style>
+</head>
+<body>
+<main id="root"></main>
+<script>
+  var D = window.AleemDesignSystem_3de1ed, h = React.createElement;
+  function Demo() {
+    return h('div', { className: 'stack' },
+      h(D.SourceList, { sources: [
+        { title: 'Web Content Accessibility Guidelines 2.2', domain: 'w3.org/TR/WCAG22', url: 'https://www.w3.org/TR/WCAG22/' },
+        { title: 'People + AI Guidebook: explainability and trust', domain: 'pair.withgoogle.com', url: 'https://pair.withgoogle.com/chapter/explainability-trust/' },
+        { title: 'Project brief, v3', domain: 'Internal document' } ] }));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>
